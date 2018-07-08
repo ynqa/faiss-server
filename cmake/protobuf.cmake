@@ -1,7 +1,7 @@
 set(PROTOBUF_VERSION v3.6.0)
 set(PROTOBUF_URL https://github.com/google/protobuf/archive/${PROTOBUF_VERSION}.zip)
 
-ExternalProject_Add(protobuf
+ExternalProject_Add(protobuf-external
     PREFIX protobuf
     URL ${PROTOBUF_URL}
     SOURCE_SUBDIR cmake

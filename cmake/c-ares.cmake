@@ -1,7 +1,7 @@
 set(CARES_VERSION 1_14_0)
 set(CARES_URL URL https://github.com/c-ares/c-ares/archive/cares-${CARES_VERSION}.zip)
 
-ExternalProject_Add(c-ares
+ExternalProject_Add(c-ares-external
     PREFIX c-ares
     URL ${CARES_URL}
     CMAKE_CACHE_ARGS

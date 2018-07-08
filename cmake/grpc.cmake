@@ -1,10 +1,12 @@
 set(GRPC_VERSION v1.13.0)
 set(GRPC_URL https://github.com/grpc/grpc/archive/${GRPC_VERSION}.zip)
+set(GRPC_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc-external/include)
+set(GRPC_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc-external/lib)
 
-ExternalProject_Add(grpc
+ExternalProject_Add(grpc-external
     PREFIX grpc
     URL ${GRPC_URL}
-    DEPENDS c-ares protobuf zlib
+    DEPENDS c-ares-external protobuf-external zlib-external
     CMAKE_CACHE_ARGS
           -DgRPC_INSTALL:BOOL=ON
           -DgRPC_BUILD_TESTS:BOOL=OFF
@@ -18,8 +20,3 @@ ExternalProject_Add(grpc
           -DgRPC_SSL_PROVIDER:STRING=package
           -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/grpc
 )
-
-set(GRPC_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/include)
-set(GRPC_LIB_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/lib)
-set_target_properties(grpc PROPERTIES IMPORTED_LOCATION 
-                      ${GRPC_LIB_DIR}/*.so)

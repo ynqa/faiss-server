@@ -1,4 +1,4 @@
-include_directories(${GRPC_INCLUDE_DIR})
-include_directories(${FAISS_INCLUDE_DIR})
+include_directories(${FAISS_SOURCE})
 
-add_executable(server main.cpp)
+add_executable(faiss-example faiss-example.cpp)
+target_link_libraries(faiss-example faiss)
