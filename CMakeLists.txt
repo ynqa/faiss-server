@@ -13,5 +13,8 @@ include(protobuf)
 include(grpc)
 include(faiss)
 
+# functions
+include(proto-functions)
+
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 subdirs(src)
