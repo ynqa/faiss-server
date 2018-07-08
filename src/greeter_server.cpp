@@ -63,3 +63,4 @@ int main(int argc, char** argv) {
   std::string user("world");
   std::string reply = greeter.SayHello(user);
   std::cout << "Greeter received: " << reply << std::endl;
+}
