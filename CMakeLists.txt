@@ -9,6 +9,7 @@ include(c-ares)
 
 include(protobuf)
 include(grpc)
+include(faiss)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 subdirs(src)

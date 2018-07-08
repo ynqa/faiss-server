@@ -16,6 +16,10 @@ ExternalProject_Add(grpc
           -DgRPC_CARES_PROVIDER:STRING=package
           -Dc-ares_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/c-ares/lib/cmake/c-ares
           -DgRPC_SSL_PROVIDER:STRING=package
-          ${_CMAKE_ARGS_OPENSSL_ROOT_DIR}
           -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/grpc
 )
+
+set(GRPC_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/include)
+set(GRPC_LIB_DIR ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/lib)
+set_target_properties(grpc PROPERTIES IMPORTED_LOCATION 
+                      ${GRPC_LIB_DIR}/*.so)
