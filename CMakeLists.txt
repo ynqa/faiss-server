@@ -84,9 +84,20 @@ ExternalProject_Add(faiss
         -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/faiss
 )
 
-# src
-ExternalProject_Add(helloworld
-  PREFIX helloworld
+# gflags
+set(GFLAGS_VERSION v2.2.1)
+set(GFLAGS_URL https://github.com/gflags/gflags/archive/${GFLAGS_VERSION}.zip)
+
+ExternalProject_Add(gflags
+    PREFIX gflags
+    URL ${GFLAGS_URL}
+    CMAKE_CACHE_ARGS
+        -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/gflags
+)
+
+# faiss-server
+ExternalProject_Add(faiss-server
+  PREFIX faiss-server
   SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src"
   BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/bin"
   INSTALL_COMMAND ""
@@ -95,5 +106,5 @@ ExternalProject_Add(helloworld
         -Dc-ares_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/c-ares/lib/cmake/c-ares
         -DZLIB_ROOT:STRING=${CMAKE_CURRENT_BINARY_DIR}/zlib
         -DgRPC_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/grpc/lib/cmake/grpc
-  DEPENDS protobuf grpc faiss
+  DEPENDS protobuf grpc faiss gflags
 )

@@ -4,3 +4,6 @@ build/
 # Example
 example/*
 !example/*.py
+
+# VS Code
+.vscode/

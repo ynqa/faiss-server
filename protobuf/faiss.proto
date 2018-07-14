@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package faiss;
+
+message HealthCheckRequest {};
+
+message HealthCheckResponse {
+    string message = 1;
+};
+
+service FaissService {
+    rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse);
+};
