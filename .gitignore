@@ -1,2 +1,6 @@
 # Build
 build/
+
+# Example
+example/*
+!example/*.py
