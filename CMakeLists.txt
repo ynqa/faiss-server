@@ -69,22 +69,35 @@ ExternalProject_Add(grpc
 # faiss
 set(FAISS_VERSION v1.3.0)
 set(FAISS_URL https://github.com/facebookresearch/faiss/archive/${FAISS_VERSION}.tar.gz)
-
 set(FAISS_SOURCE ${CMAKE_CURRENT_BINARY_DIR}/faiss/src/faiss)
-set(FAISS_MAKEFILEINC_SRC ${FAISS_SOURCE}/example_makefiles/makefile.inc.Mac.brew)
 set(FAISS_MAKEFILEINC_DEST ${FAISS_SOURCE}/makefile.inc)
 
-ExternalProject_Add(faiss
-    PREFIX faiss
-    URL ${FAISS_URL}
-    CONFIGURE_COMMAND cp ${FAISS_MAKEFILEINC_SRC} ${FAISS_MAKEFILEINC_DEST}
-    BUILD_COMMAND cd ${FAISS_SOURCE} && make install
-    INSTALL_COMMAND ""
-    CMAKE_CACHE_ARGS
-        -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/faiss
-)
+if(APPLE)
+    set(FAISS_MAKEFILEINC_SRC ${FAISS_SOURCE}/example_makefiles/makefile.inc.Mac.brew)
+    ExternalProject_Add(faiss
+        PREFIX faiss
+        URL ${FAISS_URL}
+        CONFIGURE_COMMAND cp ${FAISS_MAKEFILEINC_SRC} ${FAISS_MAKEFILEINC_DEST}
+        BUILD_COMMAND cd ${FAISS_SOURCE} && make install
+        INSTALL_COMMAND ""
+        CMAKE_CACHE_ARGS
+            -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/faiss
+    )
+elseif(UNIX)
+    set(FAISS_MAKEFILEINC_SRC ${FAISS_SOURCE}/example_makefiles/makefile.inc.Linux)
+    ExternalProject_Add(faiss
+        PREFIX faiss
+        URL ${FAISS_URL}
+        CONFIGURE_COMMAND ""
+        BUILD_COMMAND cp ${FAISS_MAKEFILEINC_SRC} ${FAISS_MAKEFILEINC_DEST}
+        INSTALL_COMMAND cd ${FAISS_SOURCE} && ./configure LIBS=-lgomp && make install
+        CMAKE_CACHE_ARGS
+            -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/faiss
+            -Dfaiss_BUILD_TESTS:BOOL=OFF
+    )
+endif()
 
-# gflags
+# # gflags
 set(GFLAGS_VERSION v2.2.1)
 set(GFLAGS_URL https://github.com/gflags/gflags/archive/${GFLAGS_VERSION}.zip)
 
