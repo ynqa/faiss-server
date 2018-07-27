@@ -1,7 +1,8 @@
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# Find gflags
+# Find 3rd parties
 find_package(gflags REQUIRED)
+find_package(spdlog REQUIRED)
 
 # Find Protobuf installation
 # Looks for protobuf-config.cmake file installed by Protobuf's cmake installation.
@@ -44,11 +45,11 @@ include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 # Faiss Server
 add_executable(faiss_server
-    main.cpp service_impl.cpp
+    main.cpp service_impl.cpp search.cpp
     ${fproto_srcs}
     ${fgrpc_srcs})
 
 target_link_libraries(faiss_server
-    gflags faiss
+    faiss gflags spdlog::spdlog
     ${_GRPC_GRPCPP_UNSECURE}
     ${_PROTOBUF_LIBPROTOBUF})

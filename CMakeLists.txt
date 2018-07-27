@@ -97,7 +97,7 @@ elseif(UNIX)
     )
 endif()
 
-# # gflags
+# gflags
 set(GFLAGS_VERSION v2.2.1)
 set(GFLAGS_URL https://github.com/gflags/gflags/archive/${GFLAGS_VERSION}.zip)
 
@@ -107,6 +107,18 @@ ExternalProject_Add(gflags
     CMAKE_CACHE_ARGS
         -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/gflags
 )
+
+# spdlog
+set(SPDLOG_VERSION v0.17.0)
+set(SPDLOG_URL https://github.com/gabime/spdlog/archive/${SPDLOG_VERSION}.zip)
+
+ExternalProject_Add(spdlog
+    PREFIX spdlog
+    URL ${SPDLOG_URL}
+    CMAKE_CACHE_ARGS
+        -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/spdlog
+)
+set(SPDLOG_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/spdlog/include)
 
 # faiss-server
 ExternalProject_Add(faiss-server
@@ -119,5 +131,5 @@ ExternalProject_Add(faiss-server
         -Dc-ares_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/c-ares/lib/cmake/c-ares
         -DZLIB_ROOT:STRING=${CMAKE_CURRENT_BINARY_DIR}/zlib
         -DgRPC_DIR:PATH=${CMAKE_CURRENT_BINARY_DIR}/grpc/lib/cmake/grpc
-  DEPENDS protobuf grpc faiss gflags
+  DEPENDS protobuf grpc faiss spdlog gflags
 )
