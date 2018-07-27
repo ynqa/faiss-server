@@ -1,9 +1,6 @@
 import argparse
 from os.path import isfile
-
-from get_corpus import get_text8, DATASET_FILE_PATH
-from indexing import indexing
-from train import train
+from indexing import indexing, train, get_text8, DATASET_FILE_PATH
 
 
 def main(args):
