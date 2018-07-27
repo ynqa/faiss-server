@@ -8,6 +8,36 @@ message HealthCheckResponse {
     string message = 1;
 };
 
+message Vector {
+    repeated float float_val = 5; 
+}
+
+message SearchRequest {
+    Vector vector = 1;
+    uint64 top_k = 2;
+};
+
+message Neighbor {
+    uint64 id = 1;
+    float score = 2;
+}
+
+message SearchResponse {
+    uint64 request_id = 1;
+    repeated Neighbor neighbors = 2;
+};
+
+message InternalSearchRequest {
+    uint64 request_id = 1;
+};
+
+message InternalSearchResponse {
+    uint64 request_id = 1;
+    repeated Neighbor neighbors = 2;
+};
+
 service FaissService {
     rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse);
+    rpc Search(SearchRequest) returns (SearchResponse);
+    rpc InternalSearch(InternalSearchRequest) returns (InternalSearchResponse);
 };
