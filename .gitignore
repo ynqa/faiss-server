@@ -1,9 +1,13 @@
 # Build
 build/
 
+# Python
+__pycache__
+*.pyc
+
 # Example
-example/*
-!example/*.py
+example/indexing/*
+!example/indexing/*py
 
 # VS Code
 .vscode/
