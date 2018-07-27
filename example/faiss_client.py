@@ -3,13 +3,16 @@ import grpc
 import faiss_pb2
 import faiss_pb2_grpc
 
+
 def main(args):
     # create channel and stub
     address = '{}:{}'.format(args.host, args.port)
     channel = grpc.insecure_channel(address)
     stub = faiss_pb2_grpc.FaissServiceStub(channel)
-    response = stub.HealthCheck.future(faiss_pb2.HealthCheckRequest(), args.timeout)
+    response = stub.HealthCheck.future(faiss_pb2.HealthCheckRequest(),
+                                       args.timeout)
     print(response.result())
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

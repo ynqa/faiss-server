@@ -6,7 +6,6 @@ import faiss
 from gensim.models import KeyedVectors, word2vec
 from tqdm import tqdm
 
-
 SRC_PATH = os.path.dirname(os.path.abspath(__file__))
 DATASET_FILE_PATH = os.path.join(SRC_PATH, 'text8')
 DATASET_ZIP_PATH = os.path.join(SRC_PATH, '{}.zip'.format(DATASET_FILE_PATH))
@@ -29,8 +28,8 @@ def get_text8():
         with DLProgress(
                 unit='B', unit_scale=True, miniters=1,
                 desc=DATASET_FILE_PATH) as pbar:
-            urlretrieve('http://mattmahoney.net/dc/text8.zip', DATASET_ZIP_PATH,
-                        pbar.hook)
+            urlretrieve('http://mattmahoney.net/dc/text8.zip',
+                        DATASET_ZIP_PATH, pbar.hook)
 
     if not os.path.isfile(DATASET_FILE_PATH):
         with zipfile.ZipFile(DATASET_ZIP_PATH) as zip_ref:

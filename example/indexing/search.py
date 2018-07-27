@@ -31,8 +31,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '-n', type=int, default=10, help='number of neighbor')
+    parser.add_argument('-n', type=int, default=10, help='number of neighbor')
     parser.add_argument(
         'word', type=str, nargs=1, help='a target word to estimate neighbors')
     main(parser.parse_args())
