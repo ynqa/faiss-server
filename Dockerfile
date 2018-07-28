@@ -2,7 +2,7 @@ FROM nvidia/cuda:8.0-devel-ubuntu16.04
 
 RUN apt-get update -y && \
     apt-get install -y \
-    curl libssl-dev libopenblas-dev python-numpy python-dev swig git python-pip wget
+    curl git libssl-dev libopenblas-dev
 ENV BLASLDFLAGS /usr/lib/libopenblas.so.0
 
 # cmake
@@ -20,6 +20,8 @@ RUN mkdir build
 WORKDIR /builder/build
 RUN cmake ..
 RUN make
+
+ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/builder/build/faiss/src/faiss
 
 ENTRYPOINT ["/builder/build/bin/faiss_server"]
 CMD ["--help"]

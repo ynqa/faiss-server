@@ -88,12 +88,11 @@ elseif(UNIX)
     ExternalProject_Add(faiss
         PREFIX faiss
         URL ${FAISS_URL}
-        CONFIGURE_COMMAND ""
-        BUILD_COMMAND cp ${FAISS_MAKEFILEINC_SRC} ${FAISS_MAKEFILEINC_DEST}
-        INSTALL_COMMAND cd ${FAISS_SOURCE} && ./configure LIBS=-lgomp && make install
+        CONFIGURE_COMMAND cp ${FAISS_MAKEFILEINC_SRC} ${FAISS_MAKEFILEINC_DEST} && cd ${FAISS_SOURCE} && ./configure LIBS=-lgomp
+        BUILD_COMMAND cd ${FAISS_SOURCE} && make install
+        INSTALL_COMMAND ""
         CMAKE_CACHE_ARGS
             -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR}/faiss
-            -Dfaiss_BUILD_TESTS:BOOL=OFF
     )
 endif()
 
