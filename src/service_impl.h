@@ -11,8 +11,8 @@
 using faiss::FaissService;
 using faiss::HealthCheckRequest;
 using faiss::HealthCheckResponse;
-using faiss::InternalSearchRequest;
-using faiss::InternalSearchResponse;
+using faiss::SearchByIdRequest;
+using faiss::SearchByIdResponse;
 using faiss::SearchRequest;
 using faiss::SearchResponse;
 
@@ -31,9 +31,9 @@ class FaissServiceImpl final : public FaissService::Service {
                       const SearchRequest* request,
                       SearchResponse* response) override;
 
-  grpc::Status InternalSearch(grpc::ServerContext* context,
-                              const faiss::InternalSearchRequest* request,
-                              faiss::InternalSearchResponse* response) override;
+  grpc::Status SearchById(grpc::ServerContext* context,
+                          const faiss::SearchByIdRequest* request,
+                          faiss::SearchByIdResponse* response) override;
 
  private:
   const std::shared_ptr<logger>& logger_;

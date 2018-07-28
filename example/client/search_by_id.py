@@ -11,10 +11,10 @@ def main(args):
     channel = grpc.insecure_channel(address)
     stub = faiss_pb2_grpc.FaissServiceStub(channel)
 
-    request = faiss_pb2.SearchRequest()
+    request = faiss_pb2.SearchByIdRequest()
     request.top_k = args.top_k
-    request.vector.float_val.extend(np.random.rand(1, 100)[0])
-    response = stub.Search.future(request, args.timeout)
+    request.id = args.id
+    response = stub.SearchById.future(request, args.timeout)
     print(response.result())
 
 
@@ -41,4 +41,6 @@ if __name__ == '__main__':
         type=int,
         default=5,
         help='number of neighbor for similarity search')
+    parser.add_argument(
+        '--id', type=int, default=0, help='request id for similarity search')
     main(parser.parse_args())

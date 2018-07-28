@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='faiss.proto',
   package='faiss',
   syntax='proto3',
-  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\"\x14\n\x12HealthCheckRequest\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\"+\n\x15InternalSearchRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\"P\n\x16InternalSearchResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xda\x01\n\x0c\x46\x61issService\x12\x44\n\x0bHealthCheck\x12\x19.faiss.HealthCheckRequest\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12M\n\x0eInternalSearch\x12\x1c.faiss.InternalSearchRequest\x1a\x1d.faiss.InternalSearchResponseb\x06proto3')
+  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\"\x14\n\x12HealthCheckRequest\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\".\n\x11SearchByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05top_k\x18\x02 \x01(\x04\"L\n\x12SearchByIdResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xce\x01\n\x0c\x46\x61issService\x12\x44\n\x0bHealthCheck\x12\x19.faiss.HealthCheckRequest\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12\x41\n\nSearchById\x12\x18.faiss.SearchByIdRequest\x1a\x19.faiss.SearchByIdResponseb\x06proto3')
 )
 
 
@@ -218,16 +218,23 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
 )
 
 
-_INTERNALSEARCHREQUEST = _descriptor.Descriptor(
-  name='InternalSearchRequest',
-  full_name='faiss.InternalSearchRequest',
+_SEARCHBYIDREQUEST = _descriptor.Descriptor(
+  name='SearchByIdRequest',
+  full_name='faiss.SearchByIdRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='faiss.InternalSearchRequest.request_id', index=0,
+      name='id', full_name='faiss.SearchByIdRequest.id', index=0,
       number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='top_k', full_name='faiss.SearchByIdRequest.top_k', index=1,
+      number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -245,26 +252,26 @@ _INTERNALSEARCHREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=269,
-  serialized_end=312,
+  serialized_end=315,
 )
 
 
-_INTERNALSEARCHRESPONSE = _descriptor.Descriptor(
-  name='InternalSearchResponse',
-  full_name='faiss.InternalSearchResponse',
+_SEARCHBYIDRESPONSE = _descriptor.Descriptor(
+  name='SearchByIdResponse',
+  full_name='faiss.SearchByIdResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='request_id', full_name='faiss.InternalSearchResponse.request_id', index=0,
+      name='request_id', full_name='faiss.SearchByIdResponse.request_id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='neighbors', full_name='faiss.InternalSearchResponse.neighbors', index=1,
+      name='neighbors', full_name='faiss.SearchByIdResponse.neighbors', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -282,21 +289,21 @@ _INTERNALSEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=314,
-  serialized_end=394,
+  serialized_start=317,
+  serialized_end=393,
 )
 
 _SEARCHREQUEST.fields_by_name['vector'].message_type = _VECTOR
 _SEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
-_INTERNALSEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
+_SEARCHBYIDRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
 DESCRIPTOR.message_types_by_name['HealthCheckRequest'] = _HEALTHCHECKREQUEST
 DESCRIPTOR.message_types_by_name['HealthCheckResponse'] = _HEALTHCHECKRESPONSE
 DESCRIPTOR.message_types_by_name['Vector'] = _VECTOR
 DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
 DESCRIPTOR.message_types_by_name['Neighbor'] = _NEIGHBOR
 DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
-DESCRIPTOR.message_types_by_name['InternalSearchRequest'] = _INTERNALSEARCHREQUEST
-DESCRIPTOR.message_types_by_name['InternalSearchResponse'] = _INTERNALSEARCHRESPONSE
+DESCRIPTOR.message_types_by_name['SearchByIdRequest'] = _SEARCHBYIDREQUEST
+DESCRIPTOR.message_types_by_name['SearchByIdResponse'] = _SEARCHBYIDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), dict(
@@ -341,19 +348,19 @@ SearchResponse = _reflection.GeneratedProtocolMessageType('SearchResponse', (_me
   ))
 _sym_db.RegisterMessage(SearchResponse)
 
-InternalSearchRequest = _reflection.GeneratedProtocolMessageType('InternalSearchRequest', (_message.Message,), dict(
-  DESCRIPTOR = _INTERNALSEARCHREQUEST,
+SearchByIdRequest = _reflection.GeneratedProtocolMessageType('SearchByIdRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCHBYIDREQUEST,
   __module__ = 'faiss_pb2'
-  # @@protoc_insertion_point(class_scope:faiss.InternalSearchRequest)
+  # @@protoc_insertion_point(class_scope:faiss.SearchByIdRequest)
   ))
-_sym_db.RegisterMessage(InternalSearchRequest)
+_sym_db.RegisterMessage(SearchByIdRequest)
 
-InternalSearchResponse = _reflection.GeneratedProtocolMessageType('InternalSearchResponse', (_message.Message,), dict(
-  DESCRIPTOR = _INTERNALSEARCHRESPONSE,
+SearchByIdResponse = _reflection.GeneratedProtocolMessageType('SearchByIdResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCHBYIDRESPONSE,
   __module__ = 'faiss_pb2'
-  # @@protoc_insertion_point(class_scope:faiss.InternalSearchResponse)
+  # @@protoc_insertion_point(class_scope:faiss.SearchByIdResponse)
   ))
-_sym_db.RegisterMessage(InternalSearchResponse)
+_sym_db.RegisterMessage(SearchByIdResponse)
 
 
 
@@ -363,8 +370,8 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=397,
-  serialized_end=615,
+  serialized_start=396,
+  serialized_end=602,
   methods=[
   _descriptor.MethodDescriptor(
     name='HealthCheck',
@@ -385,12 +392,12 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
     options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='InternalSearch',
-    full_name='faiss.FaissService.InternalSearch',
+    name='SearchById',
+    full_name='faiss.FaissService.SearchById',
     index=2,
     containing_service=None,
-    input_type=_INTERNALSEARCHREQUEST,
-    output_type=_INTERNALSEARCHRESPONSE,
+    input_type=_SEARCHBYIDREQUEST,
+    output_type=_SEARCHBYIDRESPONSE,
     options=None,
   ),
 ])

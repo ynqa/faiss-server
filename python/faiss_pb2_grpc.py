@@ -24,10 +24,10 @@ class FaissServiceStub(object):
         request_serializer=faiss__pb2.SearchRequest.SerializeToString,
         response_deserializer=faiss__pb2.SearchResponse.FromString,
         )
-    self.InternalSearch = channel.unary_unary(
-        '/faiss.FaissService/InternalSearch',
-        request_serializer=faiss__pb2.InternalSearchRequest.SerializeToString,
-        response_deserializer=faiss__pb2.InternalSearchResponse.FromString,
+    self.SearchById = channel.unary_unary(
+        '/faiss.FaissService/SearchById',
+        request_serializer=faiss__pb2.SearchByIdRequest.SerializeToString,
+        response_deserializer=faiss__pb2.SearchByIdResponse.FromString,
         )
 
 
@@ -49,7 +49,7 @@ class FaissServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def InternalSearch(self, request, context):
+  def SearchById(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -69,10 +69,10 @@ def add_FaissServiceServicer_to_server(servicer, server):
           request_deserializer=faiss__pb2.SearchRequest.FromString,
           response_serializer=faiss__pb2.SearchResponse.SerializeToString,
       ),
-      'InternalSearch': grpc.unary_unary_rpc_method_handler(
-          servicer.InternalSearch,
-          request_deserializer=faiss__pb2.InternalSearchRequest.FromString,
-          response_serializer=faiss__pb2.InternalSearchResponse.SerializeToString,
+      'SearchById': grpc.unary_unary_rpc_method_handler(
+          servicer.SearchById,
+          request_deserializer=faiss__pb2.SearchByIdRequest.FromString,
+          response_serializer=faiss__pb2.SearchByIdResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

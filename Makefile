@@ -5,3 +5,7 @@ pyclient:
 .PHONY: fmt
 fmt:
 	clang-format -style=Google -i src/*.h src/*.cpp
+
+.PHONY: pyfmt
+pyfmt:
+	yapf -i example/indexing/*/py example/client/*.py

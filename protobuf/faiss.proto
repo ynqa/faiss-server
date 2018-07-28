@@ -26,11 +26,12 @@ message SearchResponse {
     repeated Neighbor neighbors = 2;
 };
 
-message InternalSearchRequest {
-    uint64 request_id = 1;
+message SearchByIdRequest {
+    uint64 id = 1;
+    uint64 top_k = 2;
 };
 
-message InternalSearchResponse {
+message SearchByIdResponse {
     uint64 request_id = 1;
     repeated Neighbor neighbors = 2;
 };
@@ -38,5 +39,5 @@ message InternalSearchResponse {
 service FaissService {
     rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse);
     rpc Search(SearchRequest) returns (SearchResponse);
-    rpc InternalSearch(InternalSearchRequest) returns (InternalSearchResponse);
+    rpc SearchById(SearchByIdRequest) returns (SearchByIdResponse);
 };
