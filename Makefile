@@ -4,5 +4,4 @@ pyclient:
 
 .PHONY: fmt
 fmt:
-	clang-format -style=Google -i src/*.h
-	clang-format -style=Google -i src/*.cpp
+	clang-format -style=Google -i src/*.h src/*.cpp

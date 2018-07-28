@@ -23,7 +23,6 @@ message Neighbor {
 }
 
 message SearchResponse {
-    uint64 request_id = 1;
     repeated Neighbor neighbors = 2;
 };
 

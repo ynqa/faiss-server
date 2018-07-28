@@ -19,6 +19,16 @@ class FaissServiceStub(object):
         request_serializer=faiss__pb2.HealthCheckRequest.SerializeToString,
         response_deserializer=faiss__pb2.HealthCheckResponse.FromString,
         )
+    self.Search = channel.unary_unary(
+        '/faiss.FaissService/Search',
+        request_serializer=faiss__pb2.SearchRequest.SerializeToString,
+        response_deserializer=faiss__pb2.SearchResponse.FromString,
+        )
+    self.InternalSearch = channel.unary_unary(
+        '/faiss.FaissService/InternalSearch',
+        request_serializer=faiss__pb2.InternalSearchRequest.SerializeToString,
+        response_deserializer=faiss__pb2.InternalSearchResponse.FromString,
+        )
 
 
 class FaissServiceServicer(object):
@@ -32,6 +42,20 @@ class FaissServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Search(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def InternalSearch(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_FaissServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +63,16 @@ def add_FaissServiceServicer_to_server(servicer, server):
           servicer.HealthCheck,
           request_deserializer=faiss__pb2.HealthCheckRequest.FromString,
           response_serializer=faiss__pb2.HealthCheckResponse.SerializeToString,
+      ),
+      'Search': grpc.unary_unary_rpc_method_handler(
+          servicer.Search,
+          request_deserializer=faiss__pb2.SearchRequest.FromString,
+          response_serializer=faiss__pb2.SearchResponse.SerializeToString,
+      ),
+      'InternalSearch': grpc.unary_unary_rpc_method_handler(
+          servicer.InternalSearch,
+          request_deserializer=faiss__pb2.InternalSearchRequest.FromString,
+          response_serializer=faiss__pb2.InternalSearchResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

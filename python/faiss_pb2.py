@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='faiss.proto',
   package='faiss',
   syntax='proto3',
-  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\"\x14\n\x12HealthCheckRequest\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2T\n\x0c\x46\x61issService\x12\x44\n\x0bHealthCheck\x12\x19.faiss.HealthCheckRequest\x1a\x1a.faiss.HealthCheckResponseb\x06proto3')
+  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\"\x14\n\x12HealthCheckRequest\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\"+\n\x15InternalSearchRequest\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\"P\n\x16InternalSearchResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xda\x01\n\x0c\x46\x61issService\x12\x44\n\x0bHealthCheck\x12\x19.faiss.HealthCheckRequest\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12M\n\x0eInternalSearch\x12\x1c.faiss.InternalSearchRequest\x1a\x1d.faiss.InternalSearchResponseb\x06proto3')
 )
 
 
@@ -79,8 +79,224 @@ _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
   serialized_end=82,
 )
 
+
+_VECTOR = _descriptor.Descriptor(
+  name='Vector',
+  full_name='faiss.Vector',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='float_val', full_name='faiss.Vector.float_val', index=0,
+      number=5, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=84,
+  serialized_end=111,
+)
+
+
+_SEARCHREQUEST = _descriptor.Descriptor(
+  name='SearchRequest',
+  full_name='faiss.SearchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vector', full_name='faiss.SearchRequest.vector', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='top_k', full_name='faiss.SearchRequest.top_k', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=113,
+  serialized_end=174,
+)
+
+
+_NEIGHBOR = _descriptor.Descriptor(
+  name='Neighbor',
+  full_name='faiss.Neighbor',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='faiss.Neighbor.id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='score', full_name='faiss.Neighbor.score', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=176,
+  serialized_end=213,
+)
+
+
+_SEARCHRESPONSE = _descriptor.Descriptor(
+  name='SearchResponse',
+  full_name='faiss.SearchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='neighbors', full_name='faiss.SearchResponse.neighbors', index=0,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=215,
+  serialized_end=267,
+)
+
+
+_INTERNALSEARCHREQUEST = _descriptor.Descriptor(
+  name='InternalSearchRequest',
+  full_name='faiss.InternalSearchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='faiss.InternalSearchRequest.request_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=269,
+  serialized_end=312,
+)
+
+
+_INTERNALSEARCHRESPONSE = _descriptor.Descriptor(
+  name='InternalSearchResponse',
+  full_name='faiss.InternalSearchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='faiss.InternalSearchResponse.request_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='neighbors', full_name='faiss.InternalSearchResponse.neighbors', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=314,
+  serialized_end=394,
+)
+
+_SEARCHREQUEST.fields_by_name['vector'].message_type = _VECTOR
+_SEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
+_INTERNALSEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
 DESCRIPTOR.message_types_by_name['HealthCheckRequest'] = _HEALTHCHECKREQUEST
 DESCRIPTOR.message_types_by_name['HealthCheckResponse'] = _HEALTHCHECKRESPONSE
+DESCRIPTOR.message_types_by_name['Vector'] = _VECTOR
+DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
+DESCRIPTOR.message_types_by_name['Neighbor'] = _NEIGHBOR
+DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
+DESCRIPTOR.message_types_by_name['InternalSearchRequest'] = _INTERNALSEARCHREQUEST
+DESCRIPTOR.message_types_by_name['InternalSearchResponse'] = _INTERNALSEARCHRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), dict(
@@ -97,6 +313,48 @@ HealthCheckResponse = _reflection.GeneratedProtocolMessageType('HealthCheckRespo
   ))
 _sym_db.RegisterMessage(HealthCheckResponse)
 
+Vector = _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), dict(
+  DESCRIPTOR = _VECTOR,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.Vector)
+  ))
+_sym_db.RegisterMessage(Vector)
+
+SearchRequest = _reflection.GeneratedProtocolMessageType('SearchRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCHREQUEST,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.SearchRequest)
+  ))
+_sym_db.RegisterMessage(SearchRequest)
+
+Neighbor = _reflection.GeneratedProtocolMessageType('Neighbor', (_message.Message,), dict(
+  DESCRIPTOR = _NEIGHBOR,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.Neighbor)
+  ))
+_sym_db.RegisterMessage(Neighbor)
+
+SearchResponse = _reflection.GeneratedProtocolMessageType('SearchResponse', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCHRESPONSE,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.SearchResponse)
+  ))
+_sym_db.RegisterMessage(SearchResponse)
+
+InternalSearchRequest = _reflection.GeneratedProtocolMessageType('InternalSearchRequest', (_message.Message,), dict(
+  DESCRIPTOR = _INTERNALSEARCHREQUEST,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.InternalSearchRequest)
+  ))
+_sym_db.RegisterMessage(InternalSearchRequest)
+
+InternalSearchResponse = _reflection.GeneratedProtocolMessageType('InternalSearchResponse', (_message.Message,), dict(
+  DESCRIPTOR = _INTERNALSEARCHRESPONSE,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.InternalSearchResponse)
+  ))
+_sym_db.RegisterMessage(InternalSearchResponse)
+
 
 
 _FAISSSERVICE = _descriptor.ServiceDescriptor(
@@ -105,8 +363,8 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=84,
-  serialized_end=168,
+  serialized_start=397,
+  serialized_end=615,
   methods=[
   _descriptor.MethodDescriptor(
     name='HealthCheck',
@@ -115,6 +373,24 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_HEALTHCHECKREQUEST,
     output_type=_HEALTHCHECKRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Search',
+    full_name='faiss.FaissService.Search',
+    index=1,
+    containing_service=None,
+    input_type=_SEARCHREQUEST,
+    output_type=_SEARCHRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='InternalSearch',
+    full_name='faiss.FaissService.InternalSearch',
+    index=2,
+    containing_service=None,
+    input_type=_INTERNALSEARCHREQUEST,
+    output_type=_INTERNALSEARCHRESPONSE,
     options=None,
   ),
 ])
