@@ -1,6 +1,7 @@
 #ifndef FAISS_SERVER_SERVICE_IMPL_H_
 #define FAISS_SERVER_SERVICE_IMPL_H_
 
+#include <faiss/index_io.h>
 #include <grpc++/grpc++.h>
 #include <spdlog/spdlog.h>
 
@@ -18,7 +19,8 @@ using spdlog::logger;
 
 class FaissServiceImpl final : public FaissService::Service {
  public:
-  explicit FaissServiceImpl(logger* console) : console_(console) {}
+  FaissServiceImpl(const std::shared_ptr<logger>& logger,
+                   const char* file_path);
 
   grpc::Status HealthCheck(grpc::ServerContext* context,
                            const HealthCheckRequest* request,
@@ -33,7 +35,8 @@ class FaissServiceImpl final : public FaissService::Service {
                               faiss::InternalSearchResponse* response) override;
 
  private:
-  logger* console_;
+  const std::shared_ptr<logger>& logger_;
+  faiss::Index* index_;
 };
 
 #endif  // FAISS_SERVER_SERVICE_IMPL_H_
