@@ -23,7 +23,6 @@ class DLProgress(tqdm):
 
 
 def get_text8():
-
     if not os.path.isfile(DATASET_ZIP_PATH):
         with DLProgress(
                 unit='B', unit_scale=True, miniters=1,
@@ -36,7 +35,7 @@ def get_text8():
             zip_ref.extractall(path=SRC_PATH)
 
 
-def train():
+def get_vector():
     if not os.path.isfile(MODEL_FILE_PATH):
         sentences = word2vec.Text8Corpus(fname=DATASET_FILE_PATH)
         model = word2vec.Word2Vec(sentences=sentences)
@@ -47,7 +46,7 @@ def train():
             fname=MODEL_FILE_PATH, binary=False)
 
 
-def indexing(word2vec_model=None):
+def do_indexing(word2vec_model=None):
     if not os.path.isfile(INDEX_FILE_PATH):
         index = faiss.IndexFlatIP(word2vec_model.vector_size)
         index.add(word2vec_model.wv.syn0norm)
@@ -61,12 +60,12 @@ def main():
     # fetch dataset
     get_text8()
 
-    # train word2vec
-    model = train()
+    # get word vector via word2vec
+    model = get_vector()
     model.wv.init_sims(replace=True)
 
-    # indexing
-    indexing(word2vec_model=model)
+    # indexing via faiss
+    do_indexing(word2vec_model=model)
 
 
 if __name__ == '__main__':
