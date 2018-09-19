@@ -17,9 +17,9 @@ FaissServiceImpl::FaissServiceImpl(const std::shared_ptr<logger>& logger,
   }
 }
 
-grpc::Status FaissServiceImpl::HealthCheck(grpc::ServerContext* context,
-                                           const HealthCheckRequest* request,
-                                           HealthCheckResponse* response) {
+grpc::Status FaissServiceImpl::HealthCheck(
+    grpc::ServerContext* context, const ::google::protobuf::Empty* request,
+    HealthCheckResponse* response) {
   logger_->info("HealthCheck");
   response->set_message("OK");
   return grpc::Status::OK;

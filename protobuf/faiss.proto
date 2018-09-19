@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package faiss;
 
-message HealthCheckRequest {};
+import "google/protobuf/empty.proto";
 
 message HealthCheckResponse {
     string message = 1;
@@ -37,7 +37,7 @@ message SearchByIdResponse {
 };
 
 service FaissService {
-    rpc HealthCheck (HealthCheckRequest) returns (HealthCheckResponse);
+    rpc HealthCheck (google.protobuf.Empty) returns (HealthCheckResponse);
     rpc Search(SearchRequest) returns (SearchResponse);
     rpc SearchById(SearchByIdRequest) returns (SearchByIdResponse);
 };

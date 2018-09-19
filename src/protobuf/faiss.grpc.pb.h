@@ -34,11 +34,11 @@ class FaissService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status HealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::faiss::HealthCheckResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>> AsyncHealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status HealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::faiss::HealthCheckResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>> AsyncHealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>>(AsyncHealthCheckRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>> PrepareAsyncHealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>> PrepareAsyncHealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>>(PrepareAsyncHealthCheckRaw(context, request, cq));
     }
     virtual ::grpc::Status Search(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::faiss::SearchResponse* response) = 0;
@@ -56,8 +56,8 @@ class FaissService final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::faiss::SearchByIdResponse>>(PrepareAsyncSearchByIdRaw(context, request, cq));
     }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>* AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>* PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>* AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::HealthCheckResponse>* PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::SearchResponse>* AsyncSearchRaw(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::SearchResponse>* PrepareAsyncSearchRaw(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::faiss::SearchByIdResponse>* AsyncSearchByIdRaw(::grpc::ClientContext* context, const ::faiss::SearchByIdRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -66,11 +66,11 @@ class FaissService final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status HealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::faiss::HealthCheckResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>> AsyncHealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status HealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::faiss::HealthCheckResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>> AsyncHealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>>(AsyncHealthCheckRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>> PrepareAsyncHealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>> PrepareAsyncHealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>>(PrepareAsyncHealthCheckRaw(context, request, cq));
     }
     ::grpc::Status Search(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::faiss::SearchResponse* response) override;
@@ -90,8 +90,8 @@ class FaissService final {
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::faiss::SearchResponse>* AsyncSearchRaw(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::faiss::SearchResponse>* PrepareAsyncSearchRaw(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::faiss::SearchByIdResponse>* AsyncSearchByIdRaw(::grpc::ClientContext* context, const ::faiss::SearchByIdRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -106,7 +106,7 @@ class FaissService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response);
+    virtual ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response);
     virtual ::grpc::Status Search(::grpc::ServerContext* context, const ::faiss::SearchRequest* request, ::faiss::SearchResponse* response);
     virtual ::grpc::Status SearchById(::grpc::ServerContext* context, const ::faiss::SearchByIdRequest* request, ::faiss::SearchByIdResponse* response);
   };
@@ -122,11 +122,11 @@ class FaissService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response) override {
+    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestHealthCheck(::grpc::ServerContext* context, ::faiss::HealthCheckRequest* request, ::grpc::ServerAsyncResponseWriter< ::faiss::HealthCheckResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestHealthCheck(::grpc::ServerContext* context, ::google::protobuf::Empty* request, ::grpc::ServerAsyncResponseWriter< ::faiss::HealthCheckResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -183,7 +183,7 @@ class FaissService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response) override {
+    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -234,7 +234,7 @@ class FaissService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response) override {
+    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -289,18 +289,18 @@ class FaissService final {
    public:
     WithStreamedUnaryMethod_HealthCheck() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::faiss::HealthCheckRequest, ::faiss::HealthCheckResponse>(std::bind(&WithStreamedUnaryMethod_HealthCheck<BaseClass>::StreamedHealthCheck, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::google::protobuf::Empty, ::faiss::HealthCheckResponse>(std::bind(&WithStreamedUnaryMethod_HealthCheck<BaseClass>::StreamedHealthCheck, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_HealthCheck() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response) override {
+    ::grpc::Status HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedHealthCheck(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::faiss::HealthCheckRequest,::faiss::HealthCheckResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedHealthCheck(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::faiss::HealthCheckResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Search : public BaseClass {

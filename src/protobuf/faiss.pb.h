@@ -30,6 +30,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_faiss_2eproto 
 
@@ -38,7 +39,7 @@ namespace protobuf_faiss_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[8];
+  static const ::google::protobuf::internal::ParseTable schema[7];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -46,9 +47,6 @@ struct TableStruct {
 void AddDescriptors();
 }  // namespace protobuf_faiss_2eproto
 namespace faiss {
-class HealthCheckRequest;
-class HealthCheckRequestDefaultTypeInternal;
-extern HealthCheckRequestDefaultTypeInternal _HealthCheckRequest_default_instance_;
 class HealthCheckResponse;
 class HealthCheckResponseDefaultTypeInternal;
 extern HealthCheckResponseDefaultTypeInternal _HealthCheckResponse_default_instance_;
@@ -73,7 +71,6 @@ extern VectorDefaultTypeInternal _Vector_default_instance_;
 }  // namespace faiss
 namespace google {
 namespace protobuf {
-template<> ::faiss::HealthCheckRequest* Arena::CreateMaybeMessage<::faiss::HealthCheckRequest>(Arena*);
 template<> ::faiss::HealthCheckResponse* Arena::CreateMaybeMessage<::faiss::HealthCheckResponse>(Arena*);
 template<> ::faiss::Neighbor* Arena::CreateMaybeMessage<::faiss::Neighbor>(Arena*);
 template<> ::faiss::SearchByIdRequest* Arena::CreateMaybeMessage<::faiss::SearchByIdRequest>(Arena*);
@@ -86,102 +83,6 @@ template<> ::faiss::Vector* Arena::CreateMaybeMessage<::faiss::Vector>(Arena*);
 namespace faiss {
 
 // ===================================================================
-
-class HealthCheckRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.HealthCheckRequest) */ {
- public:
-  HealthCheckRequest();
-  virtual ~HealthCheckRequest();
-
-  HealthCheckRequest(const HealthCheckRequest& from);
-
-  inline HealthCheckRequest& operator=(const HealthCheckRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  HealthCheckRequest(HealthCheckRequest&& from) noexcept
-    : HealthCheckRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline HealthCheckRequest& operator=(HealthCheckRequest&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const HealthCheckRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HealthCheckRequest* internal_default_instance() {
-    return reinterpret_cast<const HealthCheckRequest*>(
-               &_HealthCheckRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  void Swap(HealthCheckRequest* other);
-  friend void swap(HealthCheckRequest& a, HealthCheckRequest& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline HealthCheckRequest* New() const final {
-    return CreateMaybeMessage<HealthCheckRequest>(NULL);
-  }
-
-  HealthCheckRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HealthCheckRequest>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HealthCheckRequest& from);
-  void MergeFrom(const HealthCheckRequest& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(HealthCheckRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:faiss.HealthCheckRequest)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_faiss_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
 
 class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.HealthCheckResponse) */ {
  public:
@@ -218,7 +119,7 @@ class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_inser
                &_HealthCheckResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   void Swap(HealthCheckResponse* other);
   friend void swap(HealthCheckResponse& a, HealthCheckResponse& b) {
@@ -329,7 +230,7 @@ class Vector : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
                &_Vector_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   void Swap(Vector* other);
   friend void swap(Vector& a, Vector& b) {
@@ -439,7 +340,7 @@ class SearchRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_SearchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   void Swap(SearchRequest* other);
   friend void swap(SearchRequest& a, SearchRequest& b) {
@@ -555,7 +456,7 @@ class Neighbor : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_Neighbor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   void Swap(Neighbor* other);
   friend void swap(Neighbor& a, Neighbor& b) {
@@ -665,7 +566,7 @@ class SearchResponse : public ::google::protobuf::Message /* @@protoc_insertion_
                &_SearchResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   void Swap(SearchResponse* other);
   friend void swap(SearchResponse& a, SearchResponse& b) {
@@ -774,7 +675,7 @@ class SearchByIdRequest : public ::google::protobuf::Message /* @@protoc_inserti
                &_SearchByIdRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   void Swap(SearchByIdRequest* other);
   friend void swap(SearchByIdRequest& a, SearchByIdRequest& b) {
@@ -884,7 +785,7 @@ class SearchByIdResponse : public ::google::protobuf::Message /* @@protoc_insert
                &_SearchByIdResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   void Swap(SearchByIdResponse* other);
   friend void swap(SearchByIdResponse& a, SearchByIdResponse& b) {
@@ -972,10 +873,6 @@ class SearchByIdResponse : public ::google::protobuf::Message /* @@protoc_insert
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// HealthCheckRequest
-
-// -------------------------------------------------------------------
-
 // HealthCheckResponse
 
 // string message = 1;
@@ -1286,8 +1183,6 @@ SearchByIdResponse::neighbors() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

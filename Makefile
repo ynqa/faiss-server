@@ -1,7 +1,6 @@
 .PHONY: client
 client:
-	protoc \
-		--proto_path=protobuf \
+	protoc --proto_path=protobuf \
 		--cpp_out=src/protobuf \
 		--grpc_out src/protobuf \
 		--plugin=protoc-gen-grpc=`which grpc_cpp_plugin` \
@@ -9,8 +8,7 @@ client:
 
  .PHONY: pyclient
  pyclient:
-	protoc \
-		--proto_path=protobuf \
+	python -m grpc_tools.protoc --proto_path=protobuf \
 		--python_out=python \
 		--grpc_python_out=python \
 		protobuf/faiss.proto

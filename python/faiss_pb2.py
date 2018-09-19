@@ -13,40 +13,18 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='faiss.proto',
   package='faiss',
   syntax='proto3',
-  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\"\x14\n\x12HealthCheckRequest\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\".\n\x11SearchByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05top_k\x18\x02 \x01(\x04\"L\n\x12SearchByIdResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xce\x01\n\x0c\x46\x61issService\x12\x44\n\x0bHealthCheck\x12\x19.faiss.HealthCheckRequest\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12\x41\n\nSearchById\x12\x18.faiss.SearchByIdRequest\x1a\x19.faiss.SearchByIdResponseb\x06proto3')
-)
+  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\".\n\x11SearchByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05top_k\x18\x02 \x01(\x04\"L\n\x12SearchByIdResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xcb\x01\n\x0c\x46\x61issService\x12\x41\n\x0bHealthCheck\x12\x16.google.protobuf.Empty\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12\x41\n\nSearchById\x12\x18.faiss.SearchByIdRequest\x1a\x19.faiss.SearchByIdResponseb\x06proto3')
+  ,
+  dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
 
-
-
-_HEALTHCHECKREQUEST = _descriptor.Descriptor(
-  name='HealthCheckRequest',
-  full_name='faiss.HealthCheckRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=22,
-  serialized_end=42,
-)
 
 
 _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
@@ -75,8 +53,8 @@ _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=82,
+  serialized_start=51,
+  serialized_end=89,
 )
 
 
@@ -106,8 +84,8 @@ _VECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=84,
-  serialized_end=111,
+  serialized_start=91,
+  serialized_end=118,
 )
 
 
@@ -144,8 +122,8 @@ _SEARCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=113,
-  serialized_end=174,
+  serialized_start=120,
+  serialized_end=181,
 )
 
 
@@ -182,8 +160,8 @@ _NEIGHBOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=176,
-  serialized_end=213,
+  serialized_start=183,
+  serialized_end=220,
 )
 
 
@@ -213,8 +191,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=215,
-  serialized_end=267,
+  serialized_start=222,
+  serialized_end=274,
 )
 
 
@@ -251,8 +229,8 @@ _SEARCHBYIDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=269,
-  serialized_end=315,
+  serialized_start=276,
+  serialized_end=322,
 )
 
 
@@ -289,14 +267,13 @@ _SEARCHBYIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=317,
-  serialized_end=393,
+  serialized_start=324,
+  serialized_end=400,
 )
 
 _SEARCHREQUEST.fields_by_name['vector'].message_type = _VECTOR
 _SEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
 _SEARCHBYIDRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
-DESCRIPTOR.message_types_by_name['HealthCheckRequest'] = _HEALTHCHECKREQUEST
 DESCRIPTOR.message_types_by_name['HealthCheckResponse'] = _HEALTHCHECKRESPONSE
 DESCRIPTOR.message_types_by_name['Vector'] = _VECTOR
 DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
@@ -305,13 +282,6 @@ DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
 DESCRIPTOR.message_types_by_name['SearchByIdRequest'] = _SEARCHBYIDREQUEST
 DESCRIPTOR.message_types_by_name['SearchByIdResponse'] = _SEARCHBYIDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), dict(
-  DESCRIPTOR = _HEALTHCHECKREQUEST,
-  __module__ = 'faiss_pb2'
-  # @@protoc_insertion_point(class_scope:faiss.HealthCheckRequest)
-  ))
-_sym_db.RegisterMessage(HealthCheckRequest)
 
 HealthCheckResponse = _reflection.GeneratedProtocolMessageType('HealthCheckResponse', (_message.Message,), dict(
   DESCRIPTOR = _HEALTHCHECKRESPONSE,
@@ -370,15 +340,15 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=396,
-  serialized_end=602,
+  serialized_start=403,
+  serialized_end=606,
   methods=[
   _descriptor.MethodDescriptor(
     name='HealthCheck',
     full_name='faiss.FaissService.HealthCheck',
     index=0,
     containing_service=None,
-    input_type=_HEALTHCHECKREQUEST,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_HEALTHCHECKRESPONSE,
     options=None,
   ),

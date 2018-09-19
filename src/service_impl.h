@@ -9,7 +9,6 @@
 #include "protobuf/faiss.grpc.pb.h"
 
 using faiss::FaissService;
-using faiss::HealthCheckRequest;
 using faiss::HealthCheckResponse;
 using faiss::SearchByIdRequest;
 using faiss::SearchByIdResponse;
@@ -24,7 +23,7 @@ class FaissServiceImpl final : public FaissService::Service {
                    const uint& default_top_k, const char* file_path);
 
   grpc::Status HealthCheck(grpc::ServerContext* context,
-                           const HealthCheckRequest* request,
+                           const ::google::protobuf::Empty* request,
                            HealthCheckResponse* response) override;
 
   grpc::Status Search(grpc::ServerContext* context,
