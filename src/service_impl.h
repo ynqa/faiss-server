@@ -6,7 +6,7 @@
 #include <grpc++/grpc++.h>
 #include <spdlog/spdlog.h>
 
-#include "faiss.grpc.pb.h"
+#include "protobuf/faiss.grpc.pb.h"
 
 using faiss::FaissService;
 using faiss::HealthCheckRequest;
