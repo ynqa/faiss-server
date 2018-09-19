@@ -33,15 +33,15 @@ FaissService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   , rpcmethod_SearchById_(FaissService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status FaissService::Stub::HealthCheck(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::faiss::HealthCheckResponse* response) {
+::grpc::Status FaissService::Stub::HealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::faiss::HealthCheckResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_HealthCheck_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HealthCheckResponse>::Create(channel_.get(), cq, rpcmethod_HealthCheck_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::faiss::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HealthCheckResponse>::Create(channel_.get(), cq, rpcmethod_HealthCheck_, context, request, false);
 }
 
@@ -73,7 +73,7 @@ FaissService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FaissService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::faiss::HealthCheckRequest, ::faiss::HealthCheckResponse>(
+      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::google::protobuf::Empty, ::faiss::HealthCheckResponse>(
           std::mem_fn(&FaissService::Service::HealthCheck), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FaissService_method_names[1],
@@ -90,7 +90,7 @@ FaissService::Service::Service() {
 FaissService::Service::~Service() {
 }
 
-::grpc::Status FaissService::Service::HealthCheck(::grpc::ServerContext* context, const ::faiss::HealthCheckRequest* request, ::faiss::HealthCheckResponse* response) {
+::grpc::Status FaissService::Service::HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) {
   (void) context;
   (void) request;
   (void) response;

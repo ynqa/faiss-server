@@ -2,6 +2,7 @@
 import grpc
 
 import faiss_pb2 as faiss__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
 class FaissServiceStub(object):
@@ -16,7 +17,7 @@ class FaissServiceStub(object):
     """
     self.HealthCheck = channel.unary_unary(
         '/faiss.FaissService/HealthCheck',
-        request_serializer=faiss__pb2.HealthCheckRequest.SerializeToString,
+        request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
         response_deserializer=faiss__pb2.HealthCheckResponse.FromString,
         )
     self.Search = channel.unary_unary(
@@ -61,7 +62,7 @@ def add_FaissServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'HealthCheck': grpc.unary_unary_rpc_method_handler(
           servicer.HealthCheck,
-          request_deserializer=faiss__pb2.HealthCheckRequest.FromString,
+          request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
           response_serializer=faiss__pb2.HealthCheckResponse.SerializeToString,
       ),
       'Search': grpc.unary_unary_rpc_method_handler(

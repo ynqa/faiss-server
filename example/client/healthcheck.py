@@ -2,6 +2,7 @@ import argparse
 import grpc
 import faiss_pb2
 import faiss_pb2_grpc
+from google.protobuf import empty_pb2
 
 
 def main(args):
