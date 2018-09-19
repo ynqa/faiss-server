@@ -3,7 +3,7 @@
 #include <spdlog/spdlog.h>
 #include <iostream>
 
-#include "faiss.grpc.pb.h"
+#include "protobuf/faiss.grpc.pb.h"
 #include "service_impl.h"
 
 DEFINE_string(host, "0.0.0.0", "host of faiss server");
