@@ -17,7 +17,7 @@ ExternalProject_Add(c-ares
 )
 
 # protobuf
-set(PROTOBUF_VERSION v3.6.0)
+set(PROTOBUF_VERSION v3.6.1)
 set(PROTOBUF_URL https://github.com/google/protobuf/archive/${PROTOBUF_VERSION}.zip)
 
 ExternalProject_Add(protobuf
@@ -45,7 +45,7 @@ ExternalProject_Add(zlib
 )
 
 # gRPC
-set(GRPC_VERSION v1.13.0)
+set(GRPC_VERSION v1.14.2)
 set(GRPC_URL https://github.com/grpc/grpc/archive/${GRPC_VERSION}.zip)
 
 ExternalProject_Add(grpc
