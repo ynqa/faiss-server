@@ -8,6 +8,7 @@
 
 #include "protobuf/faiss.grpc.pb.h"
 
+using faiss::AddRequest;
 using faiss::FaissService;
 using faiss::HeartbeatResponse;
 using faiss::SearchByIdRequest;
@@ -19,8 +20,8 @@ using spdlog::logger;
 
 class FaissServer final : public FaissService::Service {
  public:
-  FaissServer(const std::shared_ptr<logger>& logger,
-                   const uint& default_top_k, const char* file_path);
+  FaissServer(const std::shared_ptr<logger>& logger, const uint& default_top_k,
+              const char* file_path);
 
   grpc::Status Heartbeat(grpc::ServerContext* context,
                          const ::google::protobuf::Empty* request,
@@ -33,6 +34,10 @@ class FaissServer final : public FaissService::Service {
   grpc::Status SearchById(grpc::ServerContext* context,
                           const faiss::SearchByIdRequest* request,
                           faiss::SearchByIdResponse* response) override;
+
+  grpc::Status Add(grpc::ServerContext* context,
+                   const faiss::AddRequest* request,
+                   ::google::protobuf::Empty* response) override;
 
  private:
   const std::shared_ptr<logger>& logger_;

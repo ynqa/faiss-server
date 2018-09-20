@@ -3,8 +3,8 @@
 #include <spdlog/spdlog.h>
 #include <iostream>
 
-#include "protobuf/faiss.grpc.pb.h"
 #include "faiss_server.h"
+#include "protobuf/faiss.grpc.pb.h"
 
 DEFINE_string(host, "0.0.0.0", "host of faiss server");
 DEFINE_string(port, "8080", "port of faiss server");

@@ -39,7 +39,7 @@ namespace protobuf_faiss_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[9];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -50,9 +50,6 @@ namespace faiss {
 class AddRequest;
 class AddRequestDefaultTypeInternal;
 extern AddRequestDefaultTypeInternal _AddRequest_default_instance_;
-class AddResponse;
-class AddResponseDefaultTypeInternal;
-extern AddResponseDefaultTypeInternal _AddResponse_default_instance_;
 class HeartbeatResponse;
 class HeartbeatResponseDefaultTypeInternal;
 extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_;
@@ -78,7 +75,6 @@ extern VectorDefaultTypeInternal _Vector_default_instance_;
 namespace google {
 namespace protobuf {
 template<> ::faiss::AddRequest* Arena::CreateMaybeMessage<::faiss::AddRequest>(Arena*);
-template<> ::faiss::AddResponse* Arena::CreateMaybeMessage<::faiss::AddResponse>(Arena*);
 template<> ::faiss::HeartbeatResponse* Arena::CreateMaybeMessage<::faiss::HeartbeatResponse>(Arena*);
 template<> ::faiss::Neighbor* Arena::CreateMaybeMessage<::faiss::Neighbor>(Arena*);
 template<> ::faiss::SearchByIdRequest* Arena::CreateMaybeMessage<::faiss::SearchByIdRequest>(Arena*);
@@ -961,106 +957,23 @@ class AddRequest : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
+  // .faiss.Vector vector = 1;
+  bool has_vector() const;
+  void clear_vector();
+  static const int kVectorFieldNumber = 1;
+  private:
+  const ::faiss::Vector& _internal_vector() const;
+  public:
+  const ::faiss::Vector& vector() const;
+  ::faiss::Vector* release_vector();
+  ::faiss::Vector* mutable_vector();
+  void set_allocated_vector(::faiss::Vector* vector);
+
   // @@protoc_insertion_point(class_scope:faiss.AddRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_faiss_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class AddResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.AddResponse) */ {
- public:
-  AddResponse();
-  virtual ~AddResponse();
-
-  AddResponse(const AddResponse& from);
-
-  inline AddResponse& operator=(const AddResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  AddResponse(AddResponse&& from) noexcept
-    : AddResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline AddResponse& operator=(AddResponse&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const AddResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const AddResponse* internal_default_instance() {
-    return reinterpret_cast<const AddResponse*>(
-               &_AddResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    8;
-
-  void Swap(AddResponse* other);
-  friend void swap(AddResponse& a, AddResponse& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline AddResponse* New() const final {
-    return CreateMaybeMessage<AddResponse>(NULL);
-  }
-
-  AddResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<AddResponse>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const AddResponse& from);
-  void MergeFrom(const AddResponse& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(AddResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:faiss.AddResponse)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::faiss::Vector* vector_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_faiss_2eproto::TableStruct;
 };
@@ -1384,15 +1297,63 @@ SearchByIdResponse::neighbors() const {
 
 // AddRequest
 
-// -------------------------------------------------------------------
-
-// AddResponse
+// .faiss.Vector vector = 1;
+inline bool AddRequest::has_vector() const {
+  return this != internal_default_instance() && vector_ != NULL;
+}
+inline void AddRequest::clear_vector() {
+  if (GetArenaNoVirtual() == NULL && vector_ != NULL) {
+    delete vector_;
+  }
+  vector_ = NULL;
+}
+inline const ::faiss::Vector& AddRequest::_internal_vector() const {
+  return *vector_;
+}
+inline const ::faiss::Vector& AddRequest::vector() const {
+  const ::faiss::Vector* p = vector_;
+  // @@protoc_insertion_point(field_get:faiss.AddRequest.vector)
+  return p != NULL ? *p : *reinterpret_cast<const ::faiss::Vector*>(
+      &::faiss::_Vector_default_instance_);
+}
+inline ::faiss::Vector* AddRequest::release_vector() {
+  // @@protoc_insertion_point(field_release:faiss.AddRequest.vector)
+  
+  ::faiss::Vector* temp = vector_;
+  vector_ = NULL;
+  return temp;
+}
+inline ::faiss::Vector* AddRequest::mutable_vector() {
+  
+  if (vector_ == NULL) {
+    auto* p = CreateMaybeMessage<::faiss::Vector>(GetArenaNoVirtual());
+    vector_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:faiss.AddRequest.vector)
+  return vector_;
+}
+inline void AddRequest::set_allocated_vector(::faiss::Vector* vector) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete vector_;
+  }
+  if (vector) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      vector = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, vector, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  vector_ = vector;
+  // @@protoc_insertion_point(field_set_allocated:faiss.AddRequest.vector)
+}
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

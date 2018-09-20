@@ -71,16 +71,16 @@ FaissService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::SearchByIdResponse>::Create(channel_.get(), cq, rpcmethod_SearchById_, context, request, false);
 }
 
-::grpc::Status FaissService::Stub::Add(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::faiss::AddResponse* response) {
+::grpc::Status FaissService::Stub::Add(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::google::protobuf::Empty* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Add_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::AddResponse>* FaissService::Stub::AsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::AddResponse>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* FaissService::Stub::AsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::AddResponse>* FaissService::Stub::PrepareAsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::AddResponse>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* FaissService::Stub::PrepareAsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::google::protobuf::Empty>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, false);
 }
 
 FaissService::Service::Service() {
@@ -102,7 +102,7 @@ FaissService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FaissService_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::faiss::AddRequest, ::faiss::AddResponse>(
+      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::faiss::AddRequest, ::google::protobuf::Empty>(
           std::mem_fn(&FaissService::Service::Add), this)));
 }
 
@@ -130,7 +130,7 @@ FaissService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status FaissService::Service::Add(::grpc::ServerContext* context, const ::faiss::AddRequest* request, ::faiss::AddResponse* response) {
+::grpc::Status FaissService::Service::Add(::grpc::ServerContext* context, const ::faiss::AddRequest* request, ::google::protobuf::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

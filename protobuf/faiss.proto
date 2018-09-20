@@ -36,8 +36,13 @@ message SearchByIdResponse {
     repeated Neighbor neighbors = 2;
 };
 
+message AddRequest {
+    Vector vector = 1;
+};
+
 service FaissService {
     rpc Heartbeat (google.protobuf.Empty) returns (HeartbeatResponse);
     rpc Search(SearchRequest) returns (SearchResponse);
     rpc SearchById(SearchByIdRequest) returns (SearchByIdResponse);
+    rpc Add(AddRequest) returns (google.protobuf.Empty);
 };

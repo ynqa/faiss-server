@@ -33,7 +33,7 @@ class FaissServiceStub(object):
     self.Add = channel.unary_unary(
         '/faiss.FaissService/Add',
         request_serializer=faiss__pb2.AddRequest.SerializeToString,
-        response_deserializer=faiss__pb2.AddResponse.FromString,
+        response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
 
 
@@ -90,7 +90,7 @@ def add_FaissServiceServicer_to_server(servicer, server):
       'Add': grpc.unary_unary_rpc_method_handler(
           servicer.Add,
           request_deserializer=faiss__pb2.AddRequest.FromString,
-          response_serializer=faiss__pb2.AddResponse.SerializeToString,
+          response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

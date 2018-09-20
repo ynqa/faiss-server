@@ -1,8 +1,8 @@
 #include "faiss_server.h"
 
 grpc::Status FaissServer::Search(grpc::ServerContext* context,
-                                      const SearchRequest* request,
-                                      SearchResponse* response) {
+                                 const SearchRequest* request,
+                                 SearchResponse* response) {
   auto top_k = request->top_k();
   if (top_k <= 0) {
     top_k = default_top_k_;
@@ -47,8 +47,8 @@ grpc::Status FaissServer::Search(grpc::ServerContext* context,
 }
 
 grpc::Status FaissServer::SearchById(grpc::ServerContext* context,
-                                          const SearchByIdRequest* request,
-                                          SearchByIdResponse* response) {
+                                     const SearchByIdRequest* request,
+                                     SearchByIdResponse* response) {
   auto top_k = request->top_k();
   if (top_k <= 0) {
     top_k = default_top_k_;

@@ -64,11 +64,6 @@ class AddRequestDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<AddRequest>
       _instance;
 } _AddRequest_default_instance_;
-class AddResponseDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<AddResponse>
-      _instance;
-} _AddResponse_default_instance_;
 }  // namespace faiss
 namespace protobuf_faiss_2eproto {
 static void InitDefaultsHeartbeatResponse() {
@@ -183,22 +178,9 @@ static void InitDefaultsAddRequest() {
   ::faiss::AddRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_AddRequest =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAddRequest}, {}};
-
-static void InitDefaultsAddResponse() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::faiss::_AddResponse_default_instance_;
-    new (ptr) ::faiss::AddResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::faiss::AddResponse::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_AddResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAddResponse}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_AddRequest =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsAddRequest}, {
+      &protobuf_faiss_2eproto::scc_info_Vector.base,}};
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_HeartbeatResponse.base);
@@ -209,10 +191,9 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_SearchByIdRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SearchByIdResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AddRequest.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_AddResponse.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[9];
+::google::protobuf::Metadata file_level_metadata[8];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -266,11 +247,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::AddResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::AddRequest, vector_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::faiss::HeartbeatResponse)},
@@ -281,7 +258,6 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 32, -1, sizeof(::faiss::SearchByIdRequest)},
   { 39, -1, sizeof(::faiss::SearchByIdResponse)},
   { 46, -1, sizeof(::faiss::AddRequest)},
-  { 51, -1, sizeof(::faiss::AddResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -293,7 +269,6 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchByIdRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchByIdResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_AddRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_AddResponse_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -311,7 +286,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 9);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 void AddDescriptorsImpl() {
@@ -326,18 +301,18 @@ void AddDescriptorsImpl() {
       "neighbors\030\002 \003(\0132\017.faiss.Neighbor\".\n\021Sear"
       "chByIdRequest\022\n\n\002id\030\001 \001(\004\022\r\n\005top_k\030\002 \001(\004"
       "\"L\n\022SearchByIdResponse\022\022\n\nrequest_id\030\001 \001"
-      "(\004\022\"\n\tneighbors\030\002 \003(\0132\017.faiss.Neighbor\"\014"
-      "\n\nAddRequest\"\r\n\013AddResponse2\365\001\n\014FaissSer"
-      "vice\022=\n\tHeartbeat\022\026.google.protobuf.Empt"
-      "y\032\030.faiss.HeartbeatResponse\0225\n\006Search\022\024."
-      "faiss.SearchRequest\032\025.faiss.SearchRespon"
-      "se\022A\n\nSearchById\022\030.faiss.SearchByIdReque"
-      "st\032\031.faiss.SearchByIdResponse\022,\n\003Add\022\021.f"
-      "aiss.AddRequest\032\022.faiss.AddResponseb\006pro"
-      "to3"
+      "(\004\022\"\n\tneighbors\030\002 \003(\0132\017.faiss.Neighbor\"+"
+      "\n\nAddRequest\022\035\n\006vector\030\001 \001(\0132\r.faiss.Vec"
+      "tor2\371\001\n\014FaissService\022=\n\tHeartbeat\022\026.goog"
+      "le.protobuf.Empty\032\030.faiss.HeartbeatRespo"
+      "nse\0225\n\006Search\022\024.faiss.SearchRequest\032\025.fa"
+      "iss.SearchResponse\022A\n\nSearchById\022\030.faiss"
+      ".SearchByIdRequest\032\031.faiss.SearchByIdRes"
+      "ponse\0220\n\003Add\022\021.faiss.AddRequest\032\026.google"
+      ".protobuf.Emptyb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 683);
+      descriptor, 703);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "faiss.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fempty_2eproto::AddDescriptors();
@@ -2146,8 +2121,11 @@ void SearchByIdResponse::InternalSwap(SearchByIdResponse* other) {
 // ===================================================================
 
 void AddRequest::InitAsDefaultInstance() {
+  ::faiss::_AddRequest_default_instance_._instance.get_mutable()->vector_ = const_cast< ::faiss::Vector*>(
+      ::faiss::Vector::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AddRequest::kVectorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AddRequest::AddRequest()
@@ -2161,10 +2139,16 @@ AddRequest::AddRequest(const AddRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_vector()) {
+    vector_ = new ::faiss::Vector(*from.vector_);
+  } else {
+    vector_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:faiss.AddRequest)
 }
 
 void AddRequest::SharedCtor() {
+  vector_ = NULL;
 }
 
 AddRequest::~AddRequest() {
@@ -2173,6 +2157,7 @@ AddRequest::~AddRequest() {
 }
 
 void AddRequest::SharedDtor() {
+  if (this != internal_default_instance()) delete vector_;
 }
 
 void AddRequest::SetCachedSize(int size) const {
@@ -2195,6 +2180,10 @@ void AddRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaNoVirtual() == NULL && vector_ != NULL) {
+    delete vector_;
+  }
+  vector_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -2207,12 +2196,29 @@ bool AddRequest::MergePartialFromCodedStream(
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .faiss.Vector vector = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_vector()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
   // @@protoc_insertion_point(parse_success:faiss.AddRequest)
@@ -2229,6 +2235,12 @@ void AddRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // .faiss.Vector vector = 1;
+  if (this->has_vector()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_vector(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -2242,6 +2254,13 @@ void AddRequest::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:faiss.AddRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
+
+  // .faiss.Vector vector = 1;
+  if (this->has_vector()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_vector(), deterministic, target);
+  }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
@@ -2260,6 +2279,13 @@ size_t AddRequest::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // .faiss.Vector vector = 1;
+  if (this->has_vector()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *vector_);
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -2287,6 +2313,9 @@ void AddRequest::MergeFrom(const AddRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_vector()) {
+    mutable_vector()->::faiss::Vector::MergeFrom(from.vector());
+  }
 }
 
 void AddRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2313,189 +2342,11 @@ void AddRequest::Swap(AddRequest* other) {
 }
 void AddRequest::InternalSwap(AddRequest* other) {
   using std::swap;
+  swap(vector_, other->vector_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
 ::google::protobuf::Metadata AddRequest::GetMetadata() const {
-  protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void AddResponse::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-AddResponse::AddResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_faiss_2eproto::scc_info_AddResponse.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:faiss.AddResponse)
-}
-AddResponse::AddResponse(const AddResponse& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:faiss.AddResponse)
-}
-
-void AddResponse::SharedCtor() {
-}
-
-AddResponse::~AddResponse() {
-  // @@protoc_insertion_point(destructor:faiss.AddResponse)
-  SharedDtor();
-}
-
-void AddResponse::SharedDtor() {
-}
-
-void AddResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* AddResponse::descriptor() {
-  ::protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const AddResponse& AddResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_faiss_2eproto::scc_info_AddResponse.base);
-  return *internal_default_instance();
-}
-
-
-void AddResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:faiss.AddResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear();
-}
-
-bool AddResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:faiss.AddResponse)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
-  }
-success:
-  // @@protoc_insertion_point(parse_success:faiss.AddResponse)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:faiss.AddResponse)
-  return false;
-#undef DO_
-}
-
-void AddResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:faiss.AddResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:faiss.AddResponse)
-}
-
-::google::protobuf::uint8* AddResponse::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:faiss.AddResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:faiss.AddResponse)
-  return target;
-}
-
-size_t AddResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:faiss.AddResponse)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void AddResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:faiss.AddResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const AddResponse* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AddResponse>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:faiss.AddResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:faiss.AddResponse)
-    MergeFrom(*source);
-  }
-}
-
-void AddResponse::MergeFrom(const AddResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:faiss.AddResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void AddResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:faiss.AddResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void AddResponse::CopyFrom(const AddResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:faiss.AddResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool AddResponse::IsInitialized() const {
-  return true;
-}
-
-void AddResponse::Swap(AddResponse* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void AddResponse::InternalSwap(AddResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata AddResponse::GetMetadata() const {
   protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2528,9 +2379,6 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::SearchByIdResponse* Arena
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::AddRequest* Arena::CreateMaybeMessage< ::faiss::AddRequest >(Arena* arena) {
   return Arena::CreateInternal< ::faiss::AddRequest >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::AddResponse* Arena::CreateMaybeMessage< ::faiss::AddResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::faiss::AddResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

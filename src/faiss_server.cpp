@@ -3,8 +3,7 @@
 #include "faiss_server.h"
 
 FaissServer::FaissServer(const std::shared_ptr<logger>& logger,
-                                   const uint& default_top_k,
-                                   const char* file_path)
+                         const uint& default_top_k, const char* file_path)
     : logger_(logger), default_top_k_(default_top_k) {
   try {
     index_ = faiss::read_index(file_path);
@@ -17,9 +16,9 @@ FaissServer::FaissServer(const std::shared_ptr<logger>& logger,
   }
 }
 
-grpc::Status FaissServer::Heartbeat(
-    grpc::ServerContext* context, const ::google::protobuf::Empty* request,
-    HeartbeatResponse* response) {
+grpc::Status FaissServer::Heartbeat(grpc::ServerContext* context,
+                                    const ::google::protobuf::Empty* request,
+                                    HeartbeatResponse* response) {
   logger_->info("Heartbeat");
   response->set_message("OK");
   return grpc::Status::OK;
