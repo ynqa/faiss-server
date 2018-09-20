@@ -8,7 +8,7 @@ find_package(gRPC REQUIRED)
 
 # Faiss Server
 add_executable(faiss_server
-    main.cpp service_impl.cpp search.cpp
+    main.cpp faiss_server.cpp search.cpp
     protobuf/faiss.grpc.pb.cc
     protobuf/faiss.pb.cc)
 

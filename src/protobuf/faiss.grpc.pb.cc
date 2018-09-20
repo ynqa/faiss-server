@@ -16,9 +16,10 @@
 namespace faiss {
 
 static const char* FaissService_method_names[] = {
-  "/faiss.FaissService/HealthCheck",
+  "/faiss.FaissService/Heartbeat",
   "/faiss.FaissService/Search",
   "/faiss.FaissService/SearchById",
+  "/faiss.FaissService/Add",
 };
 
 std::unique_ptr< FaissService::Stub> FaissService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -28,21 +29,22 @@ std::unique_ptr< FaissService::Stub> FaissService::NewStub(const std::shared_ptr
 }
 
 FaissService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_HealthCheck_(FaissService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_Heartbeat_(FaissService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Search_(FaissService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SearchById_(FaissService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Add_(FaissService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status FaissService::Stub::HealthCheck(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::faiss::HealthCheckResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_HealthCheck_, context, request, response);
+::grpc::Status FaissService::Stub::Heartbeat(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::faiss::HeartbeatResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Heartbeat_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::AsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HealthCheckResponse>::Create(channel_.get(), cq, rpcmethod_HealthCheck_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::faiss::HeartbeatResponse>* FaissService::Stub::AsyncHeartbeatRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HeartbeatResponse>::Create(channel_.get(), cq, rpcmethod_Heartbeat_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::faiss::HealthCheckResponse>* FaissService::Stub::PrepareAsyncHealthCheckRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HealthCheckResponse>::Create(channel_.get(), cq, rpcmethod_HealthCheck_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::faiss::HeartbeatResponse>* FaissService::Stub::PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::HeartbeatResponse>::Create(channel_.get(), cq, rpcmethod_Heartbeat_, context, request, false);
 }
 
 ::grpc::Status FaissService::Stub::Search(::grpc::ClientContext* context, const ::faiss::SearchRequest& request, ::faiss::SearchResponse* response) {
@@ -69,12 +71,24 @@ FaissService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chann
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::SearchByIdResponse>::Create(channel_.get(), cq, rpcmethod_SearchById_, context, request, false);
 }
 
+::grpc::Status FaissService::Stub::Add(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::faiss::AddResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Add_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::faiss::AddResponse>* FaissService::Stub::AsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::AddResponse>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::faiss::AddResponse>* FaissService::Stub::PrepareAsyncAddRaw(::grpc::ClientContext* context, const ::faiss::AddRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::faiss::AddResponse>::Create(channel_.get(), cq, rpcmethod_Add_, context, request, false);
+}
+
 FaissService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FaissService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::google::protobuf::Empty, ::faiss::HealthCheckResponse>(
-          std::mem_fn(&FaissService::Service::HealthCheck), this)));
+      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::google::protobuf::Empty, ::faiss::HeartbeatResponse>(
+          std::mem_fn(&FaissService::Service::Heartbeat), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FaissService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
@@ -85,12 +99,17 @@ FaissService::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::faiss::SearchByIdRequest, ::faiss::SearchByIdResponse>(
           std::mem_fn(&FaissService::Service::SearchById), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      FaissService_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< FaissService::Service, ::faiss::AddRequest, ::faiss::AddResponse>(
+          std::mem_fn(&FaissService::Service::Add), this)));
 }
 
 FaissService::Service::~Service() {
 }
 
-::grpc::Status FaissService::Service::HealthCheck(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HealthCheckResponse* response) {
+::grpc::Status FaissService::Service::Heartbeat(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::faiss::HeartbeatResponse* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -105,6 +124,13 @@ FaissService::Service::~Service() {
 }
 
 ::grpc::Status FaissService::Service::SearchById(::grpc::ServerContext* context, const ::faiss::SearchByIdRequest* request, ::faiss::SearchByIdResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status FaissService::Service::Add(::grpc::ServerContext* context, const ::faiss::AddRequest* request, ::faiss::AddResponse* response) {
   (void) context;
   (void) request;
   (void) response;

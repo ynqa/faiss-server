@@ -39,7 +39,7 @@ namespace protobuf_faiss_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[7];
+  static const ::google::protobuf::internal::ParseTable schema[9];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,9 +47,15 @@ struct TableStruct {
 void AddDescriptors();
 }  // namespace protobuf_faiss_2eproto
 namespace faiss {
-class HealthCheckResponse;
-class HealthCheckResponseDefaultTypeInternal;
-extern HealthCheckResponseDefaultTypeInternal _HealthCheckResponse_default_instance_;
+class AddRequest;
+class AddRequestDefaultTypeInternal;
+extern AddRequestDefaultTypeInternal _AddRequest_default_instance_;
+class AddResponse;
+class AddResponseDefaultTypeInternal;
+extern AddResponseDefaultTypeInternal _AddResponse_default_instance_;
+class HeartbeatResponse;
+class HeartbeatResponseDefaultTypeInternal;
+extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_;
 class Neighbor;
 class NeighborDefaultTypeInternal;
 extern NeighborDefaultTypeInternal _Neighbor_default_instance_;
@@ -71,7 +77,9 @@ extern VectorDefaultTypeInternal _Vector_default_instance_;
 }  // namespace faiss
 namespace google {
 namespace protobuf {
-template<> ::faiss::HealthCheckResponse* Arena::CreateMaybeMessage<::faiss::HealthCheckResponse>(Arena*);
+template<> ::faiss::AddRequest* Arena::CreateMaybeMessage<::faiss::AddRequest>(Arena*);
+template<> ::faiss::AddResponse* Arena::CreateMaybeMessage<::faiss::AddResponse>(Arena*);
+template<> ::faiss::HeartbeatResponse* Arena::CreateMaybeMessage<::faiss::HeartbeatResponse>(Arena*);
 template<> ::faiss::Neighbor* Arena::CreateMaybeMessage<::faiss::Neighbor>(Arena*);
 template<> ::faiss::SearchByIdRequest* Arena::CreateMaybeMessage<::faiss::SearchByIdRequest>(Arena*);
 template<> ::faiss::SearchByIdResponse* Arena::CreateMaybeMessage<::faiss::SearchByIdResponse>(Arena*);
@@ -84,24 +92,24 @@ namespace faiss {
 
 // ===================================================================
 
-class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.HealthCheckResponse) */ {
+class HeartbeatResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.HeartbeatResponse) */ {
  public:
-  HealthCheckResponse();
-  virtual ~HealthCheckResponse();
+  HeartbeatResponse();
+  virtual ~HeartbeatResponse();
 
-  HealthCheckResponse(const HealthCheckResponse& from);
+  HeartbeatResponse(const HeartbeatResponse& from);
 
-  inline HealthCheckResponse& operator=(const HealthCheckResponse& from) {
+  inline HeartbeatResponse& operator=(const HeartbeatResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  HealthCheckResponse(HealthCheckResponse&& from) noexcept
-    : HealthCheckResponse() {
+  HeartbeatResponse(HeartbeatResponse&& from) noexcept
+    : HeartbeatResponse() {
     *this = ::std::move(from);
   }
 
-  inline HealthCheckResponse& operator=(HealthCheckResponse&& from) noexcept {
+  inline HeartbeatResponse& operator=(HeartbeatResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -111,34 +119,34 @@ class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_inser
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const HealthCheckResponse& default_instance();
+  static const HeartbeatResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HealthCheckResponse* internal_default_instance() {
-    return reinterpret_cast<const HealthCheckResponse*>(
-               &_HealthCheckResponse_default_instance_);
+  static inline const HeartbeatResponse* internal_default_instance() {
+    return reinterpret_cast<const HeartbeatResponse*>(
+               &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(HealthCheckResponse* other);
-  friend void swap(HealthCheckResponse& a, HealthCheckResponse& b) {
+  void Swap(HeartbeatResponse* other);
+  friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline HealthCheckResponse* New() const final {
-    return CreateMaybeMessage<HealthCheckResponse>(NULL);
+  inline HeartbeatResponse* New() const final {
+    return CreateMaybeMessage<HeartbeatResponse>(NULL);
   }
 
-  HealthCheckResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HealthCheckResponse>(arena);
+  HeartbeatResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HeartbeatResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HealthCheckResponse& from);
-  void MergeFrom(const HealthCheckResponse& from);
+  void CopyFrom(const HeartbeatResponse& from);
+  void MergeFrom(const HeartbeatResponse& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -155,7 +163,7 @@ class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_inser
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HealthCheckResponse* other);
+  void InternalSwap(HeartbeatResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -185,7 +193,7 @@ class HealthCheckResponse : public ::google::protobuf::Message /* @@protoc_inser
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // @@protoc_insertion_point(class_scope:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(class_scope:faiss.HeartbeatResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -864,6 +872,198 @@ class SearchByIdResponse : public ::google::protobuf::Message /* @@protoc_insert
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_faiss_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class AddRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.AddRequest) */ {
+ public:
+  AddRequest();
+  virtual ~AddRequest();
+
+  AddRequest(const AddRequest& from);
+
+  inline AddRequest& operator=(const AddRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AddRequest(AddRequest&& from) noexcept
+    : AddRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline AddRequest& operator=(AddRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AddRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AddRequest* internal_default_instance() {
+    return reinterpret_cast<const AddRequest*>(
+               &_AddRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(AddRequest* other);
+  friend void swap(AddRequest& a, AddRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AddRequest* New() const final {
+    return CreateMaybeMessage<AddRequest>(NULL);
+  }
+
+  AddRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AddRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AddRequest& from);
+  void MergeFrom(const AddRequest& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AddRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:faiss.AddRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_faiss_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class AddResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:faiss.AddResponse) */ {
+ public:
+  AddResponse();
+  virtual ~AddResponse();
+
+  AddResponse(const AddResponse& from);
+
+  inline AddResponse& operator=(const AddResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AddResponse(AddResponse&& from) noexcept
+    : AddResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline AddResponse& operator=(AddResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AddResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AddResponse* internal_default_instance() {
+    return reinterpret_cast<const AddResponse*>(
+               &_AddResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(AddResponse* other);
+  friend void swap(AddResponse& a, AddResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AddResponse* New() const final {
+    return CreateMaybeMessage<AddResponse>(NULL);
+  }
+
+  AddResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AddResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AddResponse& from);
+  void MergeFrom(const AddResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AddResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:faiss.AddResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_faiss_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -873,59 +1073,59 @@ class SearchByIdResponse : public ::google::protobuf::Message /* @@protoc_insert
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// HealthCheckResponse
+// HeartbeatResponse
 
 // string message = 1;
-inline void HealthCheckResponse::clear_message() {
+inline void HeartbeatResponse::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HealthCheckResponse::message() const {
-  // @@protoc_insertion_point(field_get:faiss.HealthCheckResponse.message)
+inline const ::std::string& HeartbeatResponse::message() const {
+  // @@protoc_insertion_point(field_get:faiss.HeartbeatResponse.message)
   return message_.GetNoArena();
 }
-inline void HealthCheckResponse::set_message(const ::std::string& value) {
+inline void HeartbeatResponse::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_set:faiss.HeartbeatResponse.message)
 }
 #if LANG_CXX11
-inline void HealthCheckResponse::set_message(::std::string&& value) {
+inline void HeartbeatResponse::set_message(::std::string&& value) {
   
   message_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_set_rvalue:faiss.HeartbeatResponse.message)
 }
 #endif
-inline void HealthCheckResponse::set_message(const char* value) {
+inline void HeartbeatResponse::set_message(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_set_char:faiss.HeartbeatResponse.message)
 }
-inline void HealthCheckResponse::set_message(const char* value, size_t size) {
+inline void HeartbeatResponse::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_set_pointer:faiss.HeartbeatResponse.message)
 }
-inline ::std::string* HealthCheckResponse::mutable_message() {
+inline ::std::string* HeartbeatResponse::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_mutable:faiss.HeartbeatResponse.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* HealthCheckResponse::release_message() {
-  // @@protoc_insertion_point(field_release:faiss.HealthCheckResponse.message)
+inline ::std::string* HeartbeatResponse::release_message() {
+  // @@protoc_insertion_point(field_release:faiss.HeartbeatResponse.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HealthCheckResponse::set_allocated_message(::std::string* message) {
+inline void HeartbeatResponse::set_allocated_message(::std::string* message) {
   if (message != NULL) {
     
   } else {
     
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:faiss.HealthCheckResponse.message)
+  // @@protoc_insertion_point(field_set_allocated:faiss.HeartbeatResponse.message)
 }
 
 // -------------------------------------------------------------------
@@ -1180,9 +1380,21 @@ SearchByIdResponse::neighbors() const {
   return neighbors_;
 }
 
+// -------------------------------------------------------------------
+
+// AddRequest
+
+// -------------------------------------------------------------------
+
+// AddResponse
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

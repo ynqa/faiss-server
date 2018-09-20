@@ -15,10 +15,10 @@ class FaissServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.HealthCheck = channel.unary_unary(
-        '/faiss.FaissService/HealthCheck',
+    self.Heartbeat = channel.unary_unary(
+        '/faiss.FaissService/Heartbeat',
         request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-        response_deserializer=faiss__pb2.HealthCheckResponse.FromString,
+        response_deserializer=faiss__pb2.HeartbeatResponse.FromString,
         )
     self.Search = channel.unary_unary(
         '/faiss.FaissService/Search',
@@ -30,13 +30,18 @@ class FaissServiceStub(object):
         request_serializer=faiss__pb2.SearchByIdRequest.SerializeToString,
         response_deserializer=faiss__pb2.SearchByIdResponse.FromString,
         )
+    self.Add = channel.unary_unary(
+        '/faiss.FaissService/Add',
+        request_serializer=faiss__pb2.AddRequest.SerializeToString,
+        response_deserializer=faiss__pb2.AddResponse.FromString,
+        )
 
 
 class FaissServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def HealthCheck(self, request, context):
+  def Heartbeat(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -57,13 +62,20 @@ class FaissServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Add(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_FaissServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'HealthCheck': grpc.unary_unary_rpc_method_handler(
-          servicer.HealthCheck,
+      'Heartbeat': grpc.unary_unary_rpc_method_handler(
+          servicer.Heartbeat,
           request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-          response_serializer=faiss__pb2.HealthCheckResponse.SerializeToString,
+          response_serializer=faiss__pb2.HeartbeatResponse.SerializeToString,
       ),
       'Search': grpc.unary_unary_rpc_method_handler(
           servicer.Search,
@@ -74,6 +86,11 @@ def add_FaissServiceServicer_to_server(servicer, server):
           servicer.SearchById,
           request_deserializer=faiss__pb2.SearchByIdRequest.FromString,
           response_serializer=faiss__pb2.SearchByIdResponse.SerializeToString,
+      ),
+      'Add': grpc.unary_unary_rpc_method_handler(
+          servicer.Add,
+          request_deserializer=faiss__pb2.AddRequest.FromString,
+          response_serializer=faiss__pb2.AddResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

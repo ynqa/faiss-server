@@ -1,8 +1,8 @@
 #include <faiss/FaissException.h>
 
-#include "service_impl.h"
+#include "faiss_server.h"
 
-FaissServiceImpl::FaissServiceImpl(const std::shared_ptr<logger>& logger,
+FaissServer::FaissServer(const std::shared_ptr<logger>& logger,
                                    const uint& default_top_k,
                                    const char* file_path)
     : logger_(logger), default_top_k_(default_top_k) {
@@ -17,10 +17,10 @@ FaissServiceImpl::FaissServiceImpl(const std::shared_ptr<logger>& logger,
   }
 }
 
-grpc::Status FaissServiceImpl::HealthCheck(
+grpc::Status FaissServer::Heartbeat(
     grpc::ServerContext* context, const ::google::protobuf::Empty* request,
-    HealthCheckResponse* response) {
-  logger_->info("HealthCheck");
+    HeartbeatResponse* response) {
+  logger_->info("Heartbeat");
   response->set_message("OK");
   return grpc::Status::OK;
 }

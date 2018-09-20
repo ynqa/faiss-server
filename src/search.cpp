@@ -1,6 +1,6 @@
-#include "service_impl.h"
+#include "faiss_server.h"
 
-grpc::Status FaissServiceImpl::Search(grpc::ServerContext* context,
+grpc::Status FaissServer::Search(grpc::ServerContext* context,
                                       const SearchRequest* request,
                                       SearchResponse* response) {
   auto top_k = request->top_k();
@@ -46,7 +46,7 @@ grpc::Status FaissServiceImpl::Search(grpc::ServerContext* context,
   return grpc::Status::OK;
 }
 
-grpc::Status FaissServiceImpl::SearchById(grpc::ServerContext* context,
+grpc::Status FaissServer::SearchById(grpc::ServerContext* context,
                                           const SearchByIdRequest* request,
                                           SearchByIdResponse* response) {
   auto top_k = request->top_k();

@@ -24,11 +24,11 @@ extern PROTOBUF_INTERNAL_EXPORT_protobuf_faiss_2eproto ::google::protobuf::inter
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_faiss_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Vector;
 }  // namespace protobuf_faiss_2eproto
 namespace faiss {
-class HealthCheckResponseDefaultTypeInternal {
+class HeartbeatResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<HealthCheckResponse>
+  ::google::protobuf::internal::ExplicitlyConstructed<HeartbeatResponse>
       _instance;
-} _HealthCheckResponse_default_instance_;
+} _HeartbeatResponse_default_instance_;
 class VectorDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Vector>
@@ -59,21 +59,31 @@ class SearchByIdResponseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SearchByIdResponse>
       _instance;
 } _SearchByIdResponse_default_instance_;
+class AddRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<AddRequest>
+      _instance;
+} _AddRequest_default_instance_;
+class AddResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<AddResponse>
+      _instance;
+} _AddResponse_default_instance_;
 }  // namespace faiss
 namespace protobuf_faiss_2eproto {
-static void InitDefaultsHealthCheckResponse() {
+static void InitDefaultsHeartbeatResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::faiss::_HealthCheckResponse_default_instance_;
-    new (ptr) ::faiss::HealthCheckResponse();
+    void* ptr = &::faiss::_HeartbeatResponse_default_instance_;
+    new (ptr) ::faiss::HeartbeatResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::faiss::HealthCheckResponse::InitAsDefaultInstance();
+  ::faiss::HeartbeatResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_HealthCheckResponse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHealthCheckResponse}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_HeartbeatResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsHeartbeatResponse}, {}};
 
 static void InitDefaultsVector() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -162,25 +172,55 @@ static void InitDefaultsSearchByIdResponse() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSearchByIdResponse}, {
       &protobuf_faiss_2eproto::scc_info_Neighbor.base,}};
 
+static void InitDefaultsAddRequest() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::faiss::_AddRequest_default_instance_;
+    new (ptr) ::faiss::AddRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::faiss::AddRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_AddRequest =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAddRequest}, {}};
+
+static void InitDefaultsAddResponse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::faiss::_AddResponse_default_instance_;
+    new (ptr) ::faiss::AddResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::faiss::AddResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_AddResponse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAddResponse}, {}};
+
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_HealthCheckResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_HeartbeatResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Vector.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SearchRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Neighbor.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SearchResponse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SearchByIdRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SearchByIdResponse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AddRequest.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AddResponse.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[7];
+::google::protobuf::Metadata file_level_metadata[9];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::HealthCheckResponse, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::HeartbeatResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::HealthCheckResponse, message_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::HeartbeatResponse, message_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::Vector, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -221,25 +261,39 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::SearchByIdResponse, request_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::SearchByIdResponse, neighbors_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::AddRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::faiss::AddResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::faiss::HealthCheckResponse)},
+  { 0, -1, sizeof(::faiss::HeartbeatResponse)},
   { 6, -1, sizeof(::faiss::Vector)},
   { 12, -1, sizeof(::faiss::SearchRequest)},
   { 19, -1, sizeof(::faiss::Neighbor)},
   { 26, -1, sizeof(::faiss::SearchResponse)},
   { 32, -1, sizeof(::faiss::SearchByIdRequest)},
   { 39, -1, sizeof(::faiss::SearchByIdResponse)},
+  { 46, -1, sizeof(::faiss::AddRequest)},
+  { 51, -1, sizeof(::faiss::AddResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_HealthCheckResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_HeartbeatResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_Vector_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_Neighbor_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchByIdRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_SearchByIdResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_AddRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::faiss::_AddResponse_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -257,31 +311,33 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 7);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 9);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\013faiss.proto\022\005faiss\032\033google/protobuf/em"
-      "pty.proto\"&\n\023HealthCheckResponse\022\017\n\007mess"
-      "age\030\001 \001(\t\"\033\n\006Vector\022\021\n\tfloat_val\030\005 \003(\002\"="
-      "\n\rSearchRequest\022\035\n\006vector\030\001 \001(\0132\r.faiss."
-      "Vector\022\r\n\005top_k\030\002 \001(\004\"%\n\010Neighbor\022\n\n\002id\030"
-      "\001 \001(\004\022\r\n\005score\030\002 \001(\002\"4\n\016SearchResponse\022\""
-      "\n\tneighbors\030\002 \003(\0132\017.faiss.Neighbor\".\n\021Se"
-      "archByIdRequest\022\n\n\002id\030\001 \001(\004\022\r\n\005top_k\030\002 \001"
-      "(\004\"L\n\022SearchByIdResponse\022\022\n\nrequest_id\030\001"
-      " \001(\004\022\"\n\tneighbors\030\002 \003(\0132\017.faiss.Neighbor"
-      "2\313\001\n\014FaissService\022A\n\013HealthCheck\022\026.googl"
-      "e.protobuf.Empty\032\032.faiss.HealthCheckResp"
-      "onse\0225\n\006Search\022\024.faiss.SearchRequest\032\025.f"
-      "aiss.SearchResponse\022A\n\nSearchById\022\030.fais"
-      "s.SearchByIdRequest\032\031.faiss.SearchByIdRe"
-      "sponseb\006proto3"
+      "pty.proto\"$\n\021HeartbeatResponse\022\017\n\007messag"
+      "e\030\001 \001(\t\"\033\n\006Vector\022\021\n\tfloat_val\030\005 \003(\002\"=\n\r"
+      "SearchRequest\022\035\n\006vector\030\001 \001(\0132\r.faiss.Ve"
+      "ctor\022\r\n\005top_k\030\002 \001(\004\"%\n\010Neighbor\022\n\n\002id\030\001 "
+      "\001(\004\022\r\n\005score\030\002 \001(\002\"4\n\016SearchResponse\022\"\n\t"
+      "neighbors\030\002 \003(\0132\017.faiss.Neighbor\".\n\021Sear"
+      "chByIdRequest\022\n\n\002id\030\001 \001(\004\022\r\n\005top_k\030\002 \001(\004"
+      "\"L\n\022SearchByIdResponse\022\022\n\nrequest_id\030\001 \001"
+      "(\004\022\"\n\tneighbors\030\002 \003(\0132\017.faiss.Neighbor\"\014"
+      "\n\nAddRequest\"\r\n\013AddResponse2\365\001\n\014FaissSer"
+      "vice\022=\n\tHeartbeat\022\026.google.protobuf.Empt"
+      "y\032\030.faiss.HeartbeatResponse\0225\n\006Search\022\024."
+      "faiss.SearchRequest\032\025.faiss.SearchRespon"
+      "se\022A\n\nSearchById\022\030.faiss.SearchByIdReque"
+      "st\032\031.faiss.SearchByIdResponse\022,\n\003Add\022\021.f"
+      "aiss.AddRequest\032\022.faiss.AddResponseb\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 614);
+      descriptor, 683);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "faiss.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fempty_2eproto::AddDescriptors();
@@ -302,20 +358,20 @@ namespace faiss {
 
 // ===================================================================
 
-void HealthCheckResponse::InitAsDefaultInstance() {
+void HeartbeatResponse::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int HealthCheckResponse::kMessageFieldNumber;
+const int HeartbeatResponse::kMessageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-HealthCheckResponse::HealthCheckResponse()
+HeartbeatResponse::HeartbeatResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_faiss_2eproto::scc_info_HealthCheckResponse.base);
+      &protobuf_faiss_2eproto::scc_info_HeartbeatResponse.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(constructor:faiss.HeartbeatResponse)
 }
-HealthCheckResponse::HealthCheckResponse(const HealthCheckResponse& from)
+HeartbeatResponse::HeartbeatResponse(const HeartbeatResponse& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
@@ -323,38 +379,38 @@ HealthCheckResponse::HealthCheckResponse(const HealthCheckResponse& from)
   if (from.message().size() > 0) {
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
-  // @@protoc_insertion_point(copy_constructor:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(copy_constructor:faiss.HeartbeatResponse)
 }
 
-void HealthCheckResponse::SharedCtor() {
+void HeartbeatResponse::SharedCtor() {
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-HealthCheckResponse::~HealthCheckResponse() {
-  // @@protoc_insertion_point(destructor:faiss.HealthCheckResponse)
+HeartbeatResponse::~HeartbeatResponse() {
+  // @@protoc_insertion_point(destructor:faiss.HeartbeatResponse)
   SharedDtor();
 }
 
-void HealthCheckResponse::SharedDtor() {
+void HeartbeatResponse::SharedDtor() {
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void HealthCheckResponse::SetCachedSize(int size) const {
+void HeartbeatResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* HealthCheckResponse::descriptor() {
+const ::google::protobuf::Descriptor* HeartbeatResponse::descriptor() {
   ::protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const HealthCheckResponse& HealthCheckResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_faiss_2eproto::scc_info_HealthCheckResponse.base);
+const HeartbeatResponse& HeartbeatResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_faiss_2eproto::scc_info_HeartbeatResponse.base);
   return *internal_default_instance();
 }
 
 
-void HealthCheckResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:faiss.HealthCheckResponse)
+void HeartbeatResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:faiss.HeartbeatResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -363,11 +419,11 @@ void HealthCheckResponse::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool HealthCheckResponse::MergePartialFromCodedStream(
+bool HeartbeatResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(parse_start:faiss.HeartbeatResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -382,7 +438,7 @@ bool HealthCheckResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->message().data(), static_cast<int>(this->message().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "faiss.HealthCheckResponse.message"));
+            "faiss.HeartbeatResponse.message"));
         } else {
           goto handle_unusual;
         }
@@ -401,17 +457,17 @@ bool HealthCheckResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(parse_success:faiss.HeartbeatResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(parse_failure:faiss.HeartbeatResponse)
   return false;
 #undef DO_
 }
 
-void HealthCheckResponse::SerializeWithCachedSizes(
+void HeartbeatResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(serialize_start:faiss.HeartbeatResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -420,7 +476,7 @@ void HealthCheckResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message().data(), static_cast<int>(this->message().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "faiss.HealthCheckResponse.message");
+      "faiss.HeartbeatResponse.message");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->message(), output);
   }
@@ -429,13 +485,13 @@ void HealthCheckResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(serialize_end:faiss.HeartbeatResponse)
 }
 
-::google::protobuf::uint8* HealthCheckResponse::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HeartbeatResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:faiss.HeartbeatResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -444,7 +500,7 @@ void HealthCheckResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->message().data(), static_cast<int>(this->message().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "faiss.HealthCheckResponse.message");
+      "faiss.HeartbeatResponse.message");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->message(), target);
@@ -454,12 +510,12 @@ void HealthCheckResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:faiss.HeartbeatResponse)
   return target;
 }
 
-size_t HealthCheckResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:faiss.HealthCheckResponse)
+size_t HeartbeatResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:faiss.HeartbeatResponse)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -479,23 +535,23 @@ size_t HealthCheckResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void HealthCheckResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:faiss.HealthCheckResponse)
+void HeartbeatResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:faiss.HeartbeatResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const HealthCheckResponse* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const HealthCheckResponse>(
+  const HeartbeatResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HeartbeatResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:faiss.HeartbeatResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:faiss.HealthCheckResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:faiss.HeartbeatResponse)
     MergeFrom(*source);
   }
 }
 
-void HealthCheckResponse::MergeFrom(const HealthCheckResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:faiss.HealthCheckResponse)
+void HeartbeatResponse::MergeFrom(const HeartbeatResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:faiss.HeartbeatResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -507,36 +563,36 @@ void HealthCheckResponse::MergeFrom(const HealthCheckResponse& from) {
   }
 }
 
-void HealthCheckResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:faiss.HealthCheckResponse)
+void HeartbeatResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:faiss.HeartbeatResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void HealthCheckResponse::CopyFrom(const HealthCheckResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:faiss.HealthCheckResponse)
+void HeartbeatResponse::CopyFrom(const HeartbeatResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:faiss.HeartbeatResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool HealthCheckResponse::IsInitialized() const {
+bool HeartbeatResponse::IsInitialized() const {
   return true;
 }
 
-void HealthCheckResponse::Swap(HealthCheckResponse* other) {
+void HeartbeatResponse::Swap(HeartbeatResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void HealthCheckResponse::InternalSwap(HealthCheckResponse* other) {
+void HeartbeatResponse::InternalSwap(HeartbeatResponse* other) {
   using std::swap;
   message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata HealthCheckResponse::GetMetadata() const {
+::google::protobuf::Metadata HeartbeatResponse::GetMetadata() const {
   protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2087,12 +2143,370 @@ void SearchByIdResponse::InternalSwap(SearchByIdResponse* other) {
 }
 
 
+// ===================================================================
+
+void AddRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AddRequest::AddRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_faiss_2eproto::scc_info_AddRequest.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:faiss.AddRequest)
+}
+AddRequest::AddRequest(const AddRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:faiss.AddRequest)
+}
+
+void AddRequest::SharedCtor() {
+}
+
+AddRequest::~AddRequest() {
+  // @@protoc_insertion_point(destructor:faiss.AddRequest)
+  SharedDtor();
+}
+
+void AddRequest::SharedDtor() {
+}
+
+void AddRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* AddRequest::descriptor() {
+  ::protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const AddRequest& AddRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_faiss_2eproto::scc_info_AddRequest.base);
+  return *internal_default_instance();
+}
+
+
+void AddRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:faiss.AddRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool AddRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:faiss.AddRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:faiss.AddRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:faiss.AddRequest)
+  return false;
+#undef DO_
+}
+
+void AddRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:faiss.AddRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:faiss.AddRequest)
+}
+
+::google::protobuf::uint8* AddRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:faiss.AddRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:faiss.AddRequest)
+  return target;
+}
+
+size_t AddRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:faiss.AddRequest)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AddRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:faiss.AddRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AddRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AddRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:faiss.AddRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:faiss.AddRequest)
+    MergeFrom(*source);
+  }
+}
+
+void AddRequest::MergeFrom(const AddRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:faiss.AddRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void AddRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:faiss.AddRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AddRequest::CopyFrom(const AddRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:faiss.AddRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AddRequest::IsInitialized() const {
+  return true;
+}
+
+void AddRequest::Swap(AddRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AddRequest::InternalSwap(AddRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata AddRequest::GetMetadata() const {
+  protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void AddResponse::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AddResponse::AddResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_faiss_2eproto::scc_info_AddResponse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:faiss.AddResponse)
+}
+AddResponse::AddResponse(const AddResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:faiss.AddResponse)
+}
+
+void AddResponse::SharedCtor() {
+}
+
+AddResponse::~AddResponse() {
+  // @@protoc_insertion_point(destructor:faiss.AddResponse)
+  SharedDtor();
+}
+
+void AddResponse::SharedDtor() {
+}
+
+void AddResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* AddResponse::descriptor() {
+  ::protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const AddResponse& AddResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_faiss_2eproto::scc_info_AddResponse.base);
+  return *internal_default_instance();
+}
+
+
+void AddResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:faiss.AddResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool AddResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:faiss.AddResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:faiss.AddResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:faiss.AddResponse)
+  return false;
+#undef DO_
+}
+
+void AddResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:faiss.AddResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:faiss.AddResponse)
+}
+
+::google::protobuf::uint8* AddResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:faiss.AddResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:faiss.AddResponse)
+  return target;
+}
+
+size_t AddResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:faiss.AddResponse)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AddResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:faiss.AddResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AddResponse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AddResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:faiss.AddResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:faiss.AddResponse)
+    MergeFrom(*source);
+  }
+}
+
+void AddResponse::MergeFrom(const AddResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:faiss.AddResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void AddResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:faiss.AddResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AddResponse::CopyFrom(const AddResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:faiss.AddResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AddResponse::IsInitialized() const {
+  return true;
+}
+
+void AddResponse::Swap(AddResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AddResponse::InternalSwap(AddResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata AddResponse::GetMetadata() const {
+  protobuf_faiss_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_faiss_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace faiss
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::HealthCheckResponse* Arena::CreateMaybeMessage< ::faiss::HealthCheckResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::faiss::HealthCheckResponse >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::HeartbeatResponse* Arena::CreateMaybeMessage< ::faiss::HeartbeatResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::faiss::HeartbeatResponse >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::Vector* Arena::CreateMaybeMessage< ::faiss::Vector >(Arena* arena) {
   return Arena::CreateInternal< ::faiss::Vector >(arena);
@@ -2111,6 +2525,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::SearchByIdRequest* Arena:
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::SearchByIdResponse* Arena::CreateMaybeMessage< ::faiss::SearchByIdResponse >(Arena* arena) {
   return Arena::CreateInternal< ::faiss::SearchByIdResponse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::AddRequest* Arena::CreateMaybeMessage< ::faiss::AddRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::faiss::AddRequest >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::faiss::AddResponse* Arena::CreateMaybeMessage< ::faiss::AddResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::faiss::AddResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

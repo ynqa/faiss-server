@@ -1,5 +1,5 @@
-#ifndef FAISS_SERVER_SERVICE_IMPL_H_
-#define FAISS_SERVER_SERVICE_IMPL_H_
+#ifndef FAISS_SERVER_H_
+#define FAISS_SERVER_H_
 
 #include <faiss/Index.h>
 #include <faiss/index_io.h>
@@ -9,7 +9,7 @@
 #include "protobuf/faiss.grpc.pb.h"
 
 using faiss::FaissService;
-using faiss::HealthCheckResponse;
+using faiss::HeartbeatResponse;
 using faiss::SearchByIdRequest;
 using faiss::SearchByIdResponse;
 using faiss::SearchRequest;
@@ -17,14 +17,14 @@ using faiss::SearchResponse;
 
 using spdlog::logger;
 
-class FaissServiceImpl final : public FaissService::Service {
+class FaissServer final : public FaissService::Service {
  public:
-  FaissServiceImpl(const std::shared_ptr<logger>& logger,
+  FaissServer(const std::shared_ptr<logger>& logger,
                    const uint& default_top_k, const char* file_path);
 
-  grpc::Status HealthCheck(grpc::ServerContext* context,
-                           const ::google::protobuf::Empty* request,
-                           HealthCheckResponse* response) override;
+  grpc::Status Heartbeat(grpc::ServerContext* context,
+                         const ::google::protobuf::Empty* request,
+                         HeartbeatResponse* response) override;
 
   grpc::Status Search(grpc::ServerContext* context,
                       const SearchRequest* request,
@@ -40,4 +40,4 @@ class FaissServiceImpl final : public FaissService::Service {
   faiss::Index* index_;
 };
 
-#endif  // FAISS_SERVER_SERVICE_IMPL_H_
+#endif  // FAISS_SERVER_H_

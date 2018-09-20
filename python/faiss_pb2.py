@@ -20,22 +20,22 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='faiss.proto',
   package='faiss',
   syntax='proto3',
-  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x13HealthCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\".\n\x11SearchByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05top_k\x18\x02 \x01(\x04\"L\n\x12SearchByIdResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor2\xcb\x01\n\x0c\x46\x61issService\x12\x41\n\x0bHealthCheck\x12\x16.google.protobuf.Empty\x1a\x1a.faiss.HealthCheckResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12\x41\n\nSearchById\x12\x18.faiss.SearchByIdRequest\x1a\x19.faiss.SearchByIdResponseb\x06proto3')
+  serialized_pb=_b('\n\x0b\x66\x61iss.proto\x12\x05\x66\x61iss\x1a\x1bgoogle/protobuf/empty.proto\"$\n\x11HeartbeatResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x06Vector\x12\x11\n\tfloat_val\x18\x05 \x03(\x02\"=\n\rSearchRequest\x12\x1d\n\x06vector\x18\x01 \x01(\x0b\x32\r.faiss.Vector\x12\r\n\x05top_k\x18\x02 \x01(\x04\"%\n\x08Neighbor\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05score\x18\x02 \x01(\x02\"4\n\x0eSearchResponse\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\".\n\x11SearchByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05top_k\x18\x02 \x01(\x04\"L\n\x12SearchByIdResponse\x12\x12\n\nrequest_id\x18\x01 \x01(\x04\x12\"\n\tneighbors\x18\x02 \x03(\x0b\x32\x0f.faiss.Neighbor\"\x0c\n\nAddRequest\"\r\n\x0b\x41\x64\x64Response2\xf5\x01\n\x0c\x46\x61issService\x12=\n\tHeartbeat\x12\x16.google.protobuf.Empty\x1a\x18.faiss.HeartbeatResponse\x12\x35\n\x06Search\x12\x14.faiss.SearchRequest\x1a\x15.faiss.SearchResponse\x12\x41\n\nSearchById\x12\x18.faiss.SearchByIdRequest\x1a\x19.faiss.SearchByIdResponse\x12,\n\x03\x41\x64\x64\x12\x11.faiss.AddRequest\x1a\x12.faiss.AddResponseb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
 
 
 
-_HEALTHCHECKRESPONSE = _descriptor.Descriptor(
-  name='HealthCheckResponse',
-  full_name='faiss.HealthCheckResponse',
+_HEARTBEATRESPONSE = _descriptor.Descriptor(
+  name='HeartbeatResponse',
+  full_name='faiss.HeartbeatResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='message', full_name='faiss.HealthCheckResponse.message', index=0,
+      name='message', full_name='faiss.HeartbeatResponse.message', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -54,7 +54,7 @@ _HEALTHCHECKRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=51,
-  serialized_end=89,
+  serialized_end=87,
 )
 
 
@@ -84,8 +84,8 @@ _VECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=91,
-  serialized_end=118,
+  serialized_start=89,
+  serialized_end=116,
 )
 
 
@@ -122,8 +122,8 @@ _SEARCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=120,
-  serialized_end=181,
+  serialized_start=118,
+  serialized_end=179,
 )
 
 
@@ -160,8 +160,8 @@ _NEIGHBOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=183,
-  serialized_end=220,
+  serialized_start=181,
+  serialized_end=218,
 )
 
 
@@ -191,8 +191,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=274,
+  serialized_start=220,
+  serialized_end=272,
 )
 
 
@@ -229,8 +229,8 @@ _SEARCHBYIDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=276,
-  serialized_end=322,
+  serialized_start=274,
+  serialized_end=320,
 )
 
 
@@ -267,28 +267,78 @@ _SEARCHBYIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=324,
-  serialized_end=400,
+  serialized_start=322,
+  serialized_end=398,
+)
+
+
+_ADDREQUEST = _descriptor.Descriptor(
+  name='AddRequest',
+  full_name='faiss.AddRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=400,
+  serialized_end=412,
+)
+
+
+_ADDRESPONSE = _descriptor.Descriptor(
+  name='AddResponse',
+  full_name='faiss.AddResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=414,
+  serialized_end=427,
 )
 
 _SEARCHREQUEST.fields_by_name['vector'].message_type = _VECTOR
 _SEARCHRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
 _SEARCHBYIDRESPONSE.fields_by_name['neighbors'].message_type = _NEIGHBOR
-DESCRIPTOR.message_types_by_name['HealthCheckResponse'] = _HEALTHCHECKRESPONSE
+DESCRIPTOR.message_types_by_name['HeartbeatResponse'] = _HEARTBEATRESPONSE
 DESCRIPTOR.message_types_by_name['Vector'] = _VECTOR
 DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
 DESCRIPTOR.message_types_by_name['Neighbor'] = _NEIGHBOR
 DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
 DESCRIPTOR.message_types_by_name['SearchByIdRequest'] = _SEARCHBYIDREQUEST
 DESCRIPTOR.message_types_by_name['SearchByIdResponse'] = _SEARCHBYIDRESPONSE
+DESCRIPTOR.message_types_by_name['AddRequest'] = _ADDREQUEST
+DESCRIPTOR.message_types_by_name['AddResponse'] = _ADDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-HealthCheckResponse = _reflection.GeneratedProtocolMessageType('HealthCheckResponse', (_message.Message,), dict(
-  DESCRIPTOR = _HEALTHCHECKRESPONSE,
+HeartbeatResponse = _reflection.GeneratedProtocolMessageType('HeartbeatResponse', (_message.Message,), dict(
+  DESCRIPTOR = _HEARTBEATRESPONSE,
   __module__ = 'faiss_pb2'
-  # @@protoc_insertion_point(class_scope:faiss.HealthCheckResponse)
+  # @@protoc_insertion_point(class_scope:faiss.HeartbeatResponse)
   ))
-_sym_db.RegisterMessage(HealthCheckResponse)
+_sym_db.RegisterMessage(HeartbeatResponse)
 
 Vector = _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), dict(
   DESCRIPTOR = _VECTOR,
@@ -332,6 +382,20 @@ SearchByIdResponse = _reflection.GeneratedProtocolMessageType('SearchByIdRespons
   ))
 _sym_db.RegisterMessage(SearchByIdResponse)
 
+AddRequest = _reflection.GeneratedProtocolMessageType('AddRequest', (_message.Message,), dict(
+  DESCRIPTOR = _ADDREQUEST,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.AddRequest)
+  ))
+_sym_db.RegisterMessage(AddRequest)
+
+AddResponse = _reflection.GeneratedProtocolMessageType('AddResponse', (_message.Message,), dict(
+  DESCRIPTOR = _ADDRESPONSE,
+  __module__ = 'faiss_pb2'
+  # @@protoc_insertion_point(class_scope:faiss.AddResponse)
+  ))
+_sym_db.RegisterMessage(AddResponse)
+
 
 
 _FAISSSERVICE = _descriptor.ServiceDescriptor(
@@ -340,16 +404,16 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=403,
-  serialized_end=606,
+  serialized_start=430,
+  serialized_end=675,
   methods=[
   _descriptor.MethodDescriptor(
-    name='HealthCheck',
-    full_name='faiss.FaissService.HealthCheck',
+    name='Heartbeat',
+    full_name='faiss.FaissService.Heartbeat',
     index=0,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
-    output_type=_HEALTHCHECKRESPONSE,
+    output_type=_HEARTBEATRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -368,6 +432,15 @@ _FAISSSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SEARCHBYIDREQUEST,
     output_type=_SEARCHBYIDRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Add',
+    full_name='faiss.FaissService.Add',
+    index=3,
+    containing_service=None,
+    input_type=_ADDREQUEST,
+    output_type=_ADDRESPONSE,
     options=None,
   ),
 ])

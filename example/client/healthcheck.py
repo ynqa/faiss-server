@@ -10,8 +10,8 @@ def main(args):
     address = '{}:{}'.format(args.host, args.port)
     channel = grpc.insecure_channel(address)
     stub = faiss_pb2_grpc.FaissServiceStub(channel)
-    response = stub.HealthCheck.future(faiss_pb2.HealthCheckRequest(),
-                                       args.timeout)
+    response = stub.Heartbeat.future(empty_pb2.Empty(),
+                                     args.timeout)
     print(response.result())
 
 

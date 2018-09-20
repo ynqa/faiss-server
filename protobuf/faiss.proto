@@ -4,7 +4,7 @@ package faiss;
 
 import "google/protobuf/empty.proto";
 
-message HealthCheckResponse {
+message HeartbeatResponse {
     string message = 1;
 };
 
@@ -37,7 +37,7 @@ message SearchByIdResponse {
 };
 
 service FaissService {
-    rpc HealthCheck (google.protobuf.Empty) returns (HealthCheckResponse);
+    rpc Heartbeat (google.protobuf.Empty) returns (HeartbeatResponse);
     rpc Search(SearchRequest) returns (SearchResponse);
     rpc SearchById(SearchByIdRequest) returns (SearchByIdResponse);
 };
